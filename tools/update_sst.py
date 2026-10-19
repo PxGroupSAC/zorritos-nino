@@ -97,4 +97,4 @@ a=s.index('<!-- SST-CHART:START -->'); b=s.index('<!-- SST-CHART:END -->')+len('
 s=s[:a]+block+s[b:]
 open(PAGE,'w',encoding='utf-8').write(s)
 print('gráfico TSM actualizado:', lm, fmt(mon[lastm]), '| semana', lastw[0], fmt(lastw[1]), '| picos', {k:(round(v[0],2),v[1]) for k,v in peaks.items()})
-subprocess.run([sys.executable,os.path.join(root,'tools','build_index.py')],check=True)
+subprocess.run([sys.executable,os.path.join(root,'tools','update_proyeccion.py')],check=True)
