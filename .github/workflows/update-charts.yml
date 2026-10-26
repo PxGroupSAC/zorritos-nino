@@ -1,0 +1,29 @@
+name: Actualizar gráficos (TSM y proyección)
+
+on:
+  schedule:
+    - cron: '45 12 * * 5'   # viernes 07:45 Lima, después de la rutina de Claude
+    - cron: '0 13 * * 2'    # martes 08:00 Lima
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Regenerar gráficos con datos de NOAA y ERA5
+        run: python3 tools/update_sst.py
+      - name: Commit y push si cambió algo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then echo "Sin cambios"; exit 0; fi
+          git add zorritos-nino-mapa-peligro.html index.html
+          git commit -m "Gráficos actualizados con datos de NOAA y ERA5 ($(date -u +%Y-%m-%d))"
+          git push
