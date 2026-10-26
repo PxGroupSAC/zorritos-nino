@@ -112,7 +112,15 @@ tbl=('<div class="tablewrap" style="margin-top:12px"><table style="min-width:640
      f'<tr class="h"><td>{cur_y0}‑{str(cur_y0+1)[2:]} (en curso, al {f(last)})</td><td>{f(next((t for t,v in daily if t>=datetime.date(cur_y0,9,1) and v>=25),None))}</td><td>—</td><td>—</td><td class="num">{fmt0(sum(v for _,v,_ in obs))}</td></tr>'
      '</tbody></table></div>')
 note=f'<p class="note" style="margin-top:8px">Lluvia del reanálisis ERA5 (ECMWF, 0,25°) en el punto de Zorritos vía Open‑Meteo; reproduce bien el calendario de cada temporada pero subestima los extremos diarios frente a las estaciones de SENAMHI. Datos hasta el {f(last)}.</p>'
-body=svg+'\n'+legend+'\n<h3 style="margin-top:18px">Mes a mes: qué esperar en Zorritos</h3>\n'+striphtml+'\n'+tbl+'\n'+note
+# ---------- datos diarios de la temporada en JSON (los lee la sección #seguimiento)
+dd={t:v for t,v in daily}
+def dayseries(y0,end=None):
+    out=[]; t=datetime.date(y0,9,1); end=end or datetime.date(y0+1,6,30)
+    while t<=end:
+        v=dd.get(t); out.append(None if v is None else round(v,1)); t+=datetime.timedelta(days=1)
+    return out
+segjson=('<script type="application/json" id="seg-lluvia">'+json.dumps({'inicio':f'{cur_y0}-09-01','hasta':last.isoformat(),'mm':dayseries(cur_y0,last),'a83':dayseries(1982),'a98':dayseries(1997)},separators=(',',':'))+'</script>')
+body=svg+'\n'+legend+'\n<h3 style="margin-top:18px">Mes a mes: qué esperar en Zorritos</h3>\n'+striphtml+'\n'+tbl+'\n'+note+'\n'+segjson
 s=open(PAGE,encoding='utf-8').read()
 a=s.index('<!-- PROYECCION:START -->'); b=s.index('<!-- PROYECCION:END -->')+len('<!-- PROYECCION:END -->')
 # Sello de regeneración: conserva la fecha anterior si los datos no cambiaron.

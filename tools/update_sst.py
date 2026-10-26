@@ -2,7 +2,7 @@
 """Descarga los índices Niño 1+2 de NOAA CPC (OISST v2.1 mensual y semanal), construye el gráfico SVG de anomalía
 de temperatura del mar y lo inserta entre <!-- SST-CHART:START --> y <!-- SST-CHART:END --> en
 zorritos-nino-mapa-peligro.html. Luego regenera index.html. Solo usa la biblioteca estándar."""
-import os, re, sys, subprocess, urllib.request, ssl, datetime
+import os, re, sys, json, subprocess, urllib.request, ssl, datetime
 root=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAGE=os.path.join(root,'zorritos-nino-mapa-peligro.html')
 MONTHLY='https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices'
@@ -91,7 +91,10 @@ lm=f'{MES[lastm[1]-1].lower()} {lastm[0]}'
 note=(f'<p class="note" style="margin-top:8px">Último dato mensual: {lm}, <b>{fmt(mon[lastm])} °C</b>. Última semana ({lastw[0].strftime("%d/%m/%Y")}): <b>{fmt(lastw[1])} °C</b>. '
       f'Máximos mensuales: 1982‑83 {fmt(peaks[1982][0])} °C ({peaks[1982][1]}), 1997‑98 {fmt(peaks[1997][0])} °C ({peaks[1997][1]}), 2023‑24 {fmt(peaks[2023][0])} °C ({peaks[2023][1]}). '
       f'Fuente: NOAA CPC, OISST v2.1, región Niño 1+2 (0–10° S, 90–80° O).</p>')
-body=svg+'\n'+legend+'\n'+note+'\n'+table
+# ---------- serie semanal de la temporada en JSON (la lee la sección #seguimiento)
+cy=lastw[0].year if lastw[0].month>=9 else lastw[0].year-1
+segjson='<script type="application/json" id="seg-tsm">'+json.dumps({'semanal':[[d.isoformat(),v] for d,v in weeks if d>=datetime.date(cy,6,1)]},separators=(',',':'))+'</script>'
+body=svg+'\n'+legend+'\n'+note+'\n'+table+'\n'+segjson
 s=open(PAGE,encoding='utf-8').read()
 a=s.index('<!-- SST-CHART:START -->'); b=s.index('<!-- SST-CHART:END -->')+len('<!-- SST-CHART:END -->')
 # Sello de regeneración: conserva la fecha anterior si los datos no cambiaron (así el workflow no hace commits vacíos).

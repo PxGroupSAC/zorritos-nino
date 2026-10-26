@@ -186,6 +186,16 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
 .h-ent ul{margin:0;padding-left:18px;font-size:15.5px}
 .h-ent li{margin-bottom:3px}
 .stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:0 0 8px}
+.seg-res{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.chip{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px 12px 4px 10px;font-size:14px;background:var(--panel);color:var(--fg);text-decoration:none}
+.chip i{width:10px;height:10px;border-radius:50%;background:var(--muted);flex:none}
+.chip.ok i{background:var(--good)} .chip.warn i{background:var(--haz-h)} .chip.bad i{background:var(--haz-vh)} .chip.run i{background:var(--sea)}
+.chip b{font-weight:600}
+.seg-wrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line)}
+.seg-wrap svg{min-width:760px;display:block}
+.st{font-weight:600}
+.st.ok{color:var(--good)} .st.warn{color:var(--haz-h)} .st.bad{color:var(--haz-vh)} .st.run{color:var(--sea)} .st.pend{color:var(--muted)}
+#seg-tabla td{font-size:14px}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
@@ -449,6 +459,7 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
 <div class="legend"><span><i class="sw" style="background:#1f4e79"></i>1982‑83</span><span><i class="sw" style="background:#2a9d8f"></i>1997‑98</span><span><i class="sw" style="background:#8e5bd1"></i>2015‑16</span><span><i class="sw" style="background:#b58900"></i>2023‑24</span><span><i class="sw" style="background:#c1272d"></i>2026‑27</span><span><i class="sw ring" style="border-color:#c1272d;border-radius:0;transform:rotate(45deg);width:11px;height:11px"></i>Último dato semanal</span><span><i class="sw line" style="background:var(--haz-h)"></i>Umbrales ICEN (ENFEN)</span></div>
 <p class="note" style="margin-top:8px">Último dato mensual: set 2026, <b>+4,7 °C</b>. Última semana (21/10/2026): <b>+5,2 °C</b>. Máximos mensuales: 1982‑83 +4,0 °C (Jun 1983), 1997‑98 +3,7 °C (Dic 1997), 2023‑24 +3,3 °C (Ago 2023). Fuente: NOAA CPC, OISST v2.1, región Niño 1+2 (0–10° S, 90–80° O).</p>
 <details style="margin-top:8px"><summary style="cursor:pointer;color:var(--accent)">Ver la tabla de datos</summary><div class="tablewrap" style="margin-top:8px"><table style="min-width:520px"><thead><tr><th>Mes</th><th>1982‑83</th><th>1997‑98</th><th>2015‑16</th><th>2023‑24</th><th>2026‑27</th></tr></thead><tbody><tr><td>Ene</td><td class="num">−0,2 °C</td><td class="num">−0,9 °C</td><td class="num">+0,1 °C</td><td class="num">−0,2 °C</td><td class="num">−0,3 °C</td></tr><tr><td>Feb</td><td class="num">−0,7 °C</td><td class="num">−0,5 °C</td><td class="num">−0,6 °C</td><td class="num">+0,7 °C</td><td class="num">+0,9 °C</td></tr><tr><td>Mar</td><td class="num">−1,4 °C</td><td class="num">+0,2 °C</td><td class="num">+0,1 °C</td><td class="num">+1,5 °C</td><td class="num">+1,3 °C</td></tr><tr><td>Abr</td><td class="num">−1,2 °C</td><td class="num">+0,8 °C</td><td class="num">+1,0 °C</td><td class="num">+2,5 °C</td><td class="num">+1,5 °C</td></tr><tr><td>May</td><td class="num">−0,6 °C</td><td class="num">+1,8 °C</td><td class="num">+1,3 °C</td><td class="num">+2,0 °C</td><td class="num">+1,8 °C</td></tr><tr><td>Jun</td><td class="num">−0,3 °C</td><td class="num">+2,8 °C</td><td class="num">+1,9 °C</td><td class="num">+2,6 °C</td><td class="num">+2,8 °C</td></tr><tr><td>Jul</td><td class="num">+0,2 °C</td><td class="num">+3,6 °C</td><td class="num">+2,5 °C</td><td class="num">+3,2 °C</td><td class="num">+3,6 °C</td></tr><tr><td>Ago</td><td class="num">+0,8 °C</td><td class="num">+3,7 °C</td><td class="num">+1,8 °C</td><td class="num">+3,3 °C</td><td class="num">+4,1 °C</td></tr><tr><td>Set</td><td class="num">+1,3 °C</td><td class="num">+3,6 °C</td><td class="num">+2,3 °C</td><td class="num">+2,8 °C</td><td class="num">+4,7 °C</td></tr><tr><td>Oct</td><td class="num">+1,8 °C</td><td class="num">+3,6 °C</td><td class="num">+2,2 °C</td><td class="num">+2,5 °C</td><td class="num">—</td></tr><tr><td>Nov</td><td class="num">+2,8 °C</td><td class="num">+3,7 °C</td><td class="num">+2,0 °C</td><td class="num">+2,2 °C</td><td class="num">—</td></tr><tr><td>Dic</td><td class="num">+2,9 °C</td><td class="num">+3,7 °C</td><td class="num">+2,1 °C</td><td class="num">+1,4 °C</td><td class="num">—</td></tr><tr><td>Ene'</td><td class="num">+2,3 °C</td><td class="num">+2,9 °C</td><td class="num">+1,2 °C</td><td class="num">+0,8 °C</td><td class="num">—</td></tr><tr><td>Feb'</td><td class="num">+1,6 °C</td><td class="num">+1,9 °C</td><td class="num">+1,0 °C</td><td class="num">+0,9 °C</td><td class="num">—</td></tr><tr><td>Mar'</td><td class="num">+1,7 °C</td><td class="num">+1,9 °C</td><td class="num">+1,1 °C</td><td class="num">+0,3 °C</td><td class="num">—</td></tr><tr><td>Abr'</td><td class="num">+2,4 °C</td><td class="num">+2,3 °C</td><td class="num">+0,5 °C</td><td class="num">+0,1 °C</td><td class="num">—</td></tr><tr><td>May'</td><td class="num">+3,3 °C</td><td class="num">+2,8 °C</td><td class="num">+0,4 °C</td><td class="num">−0,7 °C</td><td class="num">—</td></tr><tr><td>Jun'</td><td class="num">+4,0 °C</td><td class="num">+1,9 °C</td><td class="num">+0,4 °C</td><td class="num">−0,7 °C</td><td class="num">—</td></tr></tbody></table></div></details>
+<script type="application/json" id="seg-tsm">{"semanal":[["2026-06-03",2.5],["2026-06-10",2.6],["2026-06-17",3.1],["2026-06-24",3.1],["2026-07-01",3.3],["2026-07-08",3.3],["2026-07-15",3.7],["2026-07-22",3.6],["2026-07-29",3.8],["2026-08-05",4.0],["2026-08-12",4.1],["2026-08-19",4.0],["2026-08-26",4.2],["2026-09-02",4.4],["2026-09-09",4.6],["2026-09-16",4.7],["2026-09-23",4.9],["2026-09-30",5.3],["2026-10-07",5.2],["2026-10-14",5.2],["2026-10-21",5.2]]}</script>
 <!-- SST-CHART:END -->
     <figcaption>El ENFEN clasifica la magnitud con el Índice Costero El Niño (ICEN), que es el promedio de tres meses de esta anomalía: cálido débil desde +0,4 °C, moderado desde +1,0 °C, fuerte desde +1,7 °C y extraordinario por encima de +3,0 °C. Las líneas de 1982‑83 y 1997‑98 son los dos Niños extraordinarios del siglo XX; 2023‑24 fue el último Niño costero fuerte. Pasa el cursor por los puntos para leer cada valor.</figcaption>
   </figure>
@@ -557,9 +568,31 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
 <div class="strip"><div class="cell l1"><b>Set</b>Lluvias aisladas récord; mar ya extraordinario</div><div class="cell l1"><b>Oct</b>Preparación: limpiar cauces y pontones; oleajes</div><div class="cell l2"><b>Nov</b>Inicio probable de lluvias fuertes y primeras quebradas activas</div><div class="cell l3"><b>Dic</b>Lluvias intensas; quebradas y puente Bocapán en riesgo</div><div class="cell l3"><b>Ene</b>Magnitud extraordinaria (ENFEN); crecidas frecuentes</div><div class="cell l4"><b>Feb</b>Pico probable: 600–700 mm/mes en los análogos</div><div class="cell l4"><b>Mar</b>Pico probable; máximos de 30 días en 1983 y 1998</div><div class="cell l3"><b>Abr</b>Sigue muy lluvioso; suelos saturados</div><div class="cell l2"><b>May</b>Cola: 1983 siguió con 500 mm; 1998 bajó</div><div class="cell l1"><b>Jun</b>Declive; vigilar mar y rehabilitación</div></div><div class="legend"><span><i class="sw" style="background:var(--haz-m)"></i>Vigilancia</span><span><i class="sw" style="background:var(--haz-h)"></i>Alto</span><span><i class="sw" style="background:var(--haz-vh)"></i>Muy alto</span><span><i class="sw" style="background:#7a1016"></i>Pico</span></div>
 <div class="tablewrap" style="margin-top:12px"><table style="min-width:640px"><thead><tr><th>Temporada</th><th>Primer día ≥ 25 mm</th><th>Mes más lluvioso</th><th>Peor ventana de 30 días</th><th class="num">Total set–jun (mm)</th></tr></thead><tbody><tr class="vh"><td>1982‑83</td><td>03/12/1982</td><td>Mar</td><td>780 mm desde el 14/02/1983</td><td class="num">3 378</td></tr><tr class="vh"><td>1997‑98</td><td>08/11/1997</td><td>Feb</td><td>796 mm desde el 05/03/1998</td><td class="num">2 943</td></tr><tr><td>Normal 1991‑2020</td><td>—</td><td>Mar</td><td>—</td><td class="num">538</td></tr><tr class="h"><td>2026‑27 (en curso, al 26/10/2026)</td><td>—</td><td>—</td><td>—</td><td class="num">83</td></tr></tbody></table></div>
 <p class="note" style="margin-top:8px">Lluvia del reanálisis ERA5 (ECMWF, 0,25°) en el punto de Zorritos vía Open‑Meteo; reproduce bien el calendario de cada temporada pero subestima los extremos diarios frente a las estaciones de SENAMHI. Datos hasta el 26/10/2026.</p>
+<script type="application/json" id="seg-lluvia">{"inicio":"2026-09-01","hasta":"2026-10-26","mm":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.1,0.0,0.0,0.0,0.9,0.9,0.0,3.8,4.9,1.9,0.0,1.2,0.0,0.0,0.5,0.0,0.2,0.0,0.0,0.2,0.0,0.0,0.1,0.3,0.3,0.0,0.0,0.1,1.4,7.5,9.6,12.1,1.9,4.2,0.7,5.5,12.7,11.5],"a83":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.1,1.1,0.4,0.0,0.0,0.0,0.0,0.2,0.0,0.1,0.0,0.0,0.0,0.4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.0,0.0,0.0,0.0,1.7,0.0,0.0,0.4,0.0,0.0,0.0,0.0,0.0,5.1,7.3,0.2,1.3,2.1,0.2,0.4,0.6,0.0,0.0,1.9,0.5,0.0,0.0,0.0,0.0,0.2,0.0,0.0,0.0,0.0,0.0,0.3,0.2,1.1,8.8,0.1,0.1,0.3,0.0,2.5,0.0,0.6,0.5,0.0,0.1,0.6,1.5,61.1,0.0,0.0,3.4,17.1,49.4,3.1,3.9,25.2,1.6,1.8,10.0,2.7,15.9,13.1,23.1,10.7,42.2,5.9,2.1,1.4,3.9,1.8,3.9,68.9,59.9,5.6,6.7,12.1,10.3,2.3,0.2,0.2,17.5,7.4,10.5,4.6,12.0,47.7,50.5,27.2,19.2,0.6,3.4,6.1,2.8,2.2,12.9,12.0,2.0,4.8,23.6,2.0,15.8,16.8,20.4,6.8,9.6,11.4,7.3,2.3,7.3,7.5,19.3,63.6,0.3,1.4,2.7,0.8,1.0,5.6,4.1,25.2,13.3,2.7,10.9,42.0,125.4,9.2,6.9,30.2,64.5,43.8,12.6,11.5,25.2,8.5,27.2,14.6,10.6,0.7,3.0,4.2,6.6,4.8,16.4,48.6,7.7,2.4,18.1,11.4,154.4,42.3,1.5,3.3,6.9,2.2,8.3,14.5,15.9,49.5,82.4,15.3,13.2,2.9,7.0,22.5,10.7,4.5,7.2,8.5,5.3,26.1,7.5,9.6,24.4,0.8,2.6,11.2,14.7,9.3,10.2,19.5,17.0,30.6,41.0,15.4,4.5,8.0,137.9,17.1,15.6,10.8,32.0,17.2,9.5,19.8,28.0,1.9,9.3,19.1,18.0,16.1,24.2,19.0,3.4,0.7,3.8,3.5,17.6,7.2,0.6,16.6,32.6,217.6,21.8,4.4,0.3,1.2,2.2,3.9,6.3,3.7,17.8,16.4,23.0,0.1,0.3,1.5,11.0,21.9,10.4,36.0,16.2,17.8,68.9,8.9,0.4,0.6,2.5,0.3,0.0,2.0,11.7,4.3,14.4,1.1,0.0,1.3,0.0,0.2,3.0,0.2,3.2,0.0,2.6,0.0,0.9,6.0,6.3],"a98":[0.0,1.9,22.0,2.6,0.4,0.0,0.0,0.1,0.0,0.1,0.0,0.0,0.0,0.5,0.0,3.1,0.7,0.2,0.0,0.0,0.0,0.2,0.0,0.0,0.0,0.7,3.0,0.4,0.0,0.5,6.1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.1,0.0,0.0,0.0,0.1,2.4,13.5,2.7,7.3,0.0,0.0,4.2,1.4,1.3,4.9,3.2,8.1,61.2,13.8,0.4,6.4,0.0,0.0,0.2,0.2,0.7,0.2,0.1,0.0,0.4,0.1,0.2,0.3,1.5,0.6,0.5,0.4,0.0,0.0,0.4,0.0,0.9,0.8,0.3,0.0,0.2,14.2,7.7,8.0,24.5,18.3,7.7,16.2,8.5,24.0,26.8,0.0,0.4,22.0,3.9,15.1,5.9,2.6,10.3,49.5,13.8,5.2,2.7,13.0,5.4,44.9,5.1,5.4,2.4,1.9,4.9,86.6,0.5,0.7,3.6,5.8,4.6,10.4,2.3,2.0,11.0,79.1,10.6,7.8,8.4,8.0,13.2,10.9,30.8,29.8,10.8,8.7,0.1,4.3,52.9,4.0,5.7,8.7,35.7,12.9,53.1,25.2,53.8,8.0,38.8,48.7,7.5,4.4,4.8,68.5,90.4,0.0,3.2,8.8,25.9,9.4,4.2,16.1,46.6,23.2,5.0,11.8,19.8,34.1,2.3,5.8,7.4,3.9,10.8,67.9,21.2,9.9,13.0,17.4,58.1,5.9,5.4,20.6,38.1,11.9,13.2,66.0,7.9,18.2,27.2,0.1,16.2,78.7,1.4,16.3,20.8,11.1,11.4,36.1,11.8,2.4,13.6,54.9,119.7,11.4,0.4,14.7,22.3,11.5,21.1,49.4,12.2,5.0,16.9,4.4,3.2,0.6,3.8,6.5,39.4,1.3,11.0,0.3,1.4,5.4,16.5,14.8,4.9,3.8,17.9,28.4,3.1,25.0,14.2,56.2,3.0,0.2,3.0,7.2,3.1,5.0,10.6,2.2,0.1,0.0,0.9,2.3,0.0,0.5,0.0,0.0,0.1,0.0,0.0,0.0,0.0,0.2,2.6,0.6,0.0,0.0,3.7,0.2,5.6,0.3,0.7,0.1,0.0,0.4,0.2,0.0,0.0,0.4,0.0,0.0,0.0,0.3,0.6,0.0,0.0,0.0,0.0,0.1,0.3,0.0,0.1,0.0,0.0,0.0,0.0,0.0,0.0]}</script>
 <!-- PROYECCION:END -->
     <figcaption>Las barras rojas son la temporada en curso; las líneas, los dos Niños extraordinarios y la lluvia normal; las franjas de fondo, las ventanas proyectadas. Pasa el cursor por los puntos y las barras para leer cada valor. La franja mensual resume el nivel de riesgo esperado en Zorritos combinando lluvia, quebradas y mar.</figcaption>
   </figure>
+</section>
+
+<section id="seguimiento">
+  <div class="sec-head" data-upd="2026-10-26"><h2>Seguimiento: lo proyectado frente a lo que pasa</h2><p>Desde el 26 de octubre, esta sección superpone la proyección (calendario de riesgo, ventanas de los tres hitos y pronóstico del ENFEN para el mar) con lo que se va observando: la lluvia diaria en el punto de Zorritos, la temperatura semanal del mar y los hechos que entran en la cronología. La línea de "hoy" avanza sola; los hitos cambian de estado cuando los datos los confirman, los adelantan o los desmienten.</p></div>
+  <div id="seg-resumen" class="seg-res"></div>
+  <figure>
+    <div class="seg-wrap"><div id="seg-chart"></div></div>
+    <div class="legend"><span><i class="sw" style="background:var(--haz-vh);opacity:.5"></i>Calendario de riesgo proyectado (vigilancia → extremo)</span><span><i class="sw" style="background:var(--fg);opacity:.7;height:6px"></i>Ventana de cada hito</span><span><i class="sw line" style="background:#c1272d"></i>Observado 2026‑27</span><span><i class="sw line" style="background:#1f4e79"></i>1982‑83 (media de 7 días)</span><span><i class="sw line" style="background:#2a9d8f"></i>1997‑98 (media de 7 días)</span><span><i class="sw" style="background:var(--haz-vh);opacity:.12"></i>Pronóstico del ENFEN para el mar</span><span><i class="sw ring" style="border-color:var(--haz-h);border-radius:50%;width:12px;height:12px;background:var(--haz-h)"></i>Hecho en Zorritos o la provincia</span><span><i class="sw ring" style="border-color:var(--haz-h);border-radius:50%;width:12px;height:12px"></i>Hecho en el resto de Tumbes o nacional</span></div>
+    <figcaption>Cuatro carriles sobre el mismo calendario, de septiembre de 2026 a junio de 2027. Arriba, lo proyectado: el nivel de riesgo de cada mes y las ventanas de los hitos. Debajo, lo observado: la anomalía semanal del mar (NOAA) frente al umbral que el ENFEN prevé para cada tramo, la lluvia diaria de ERA5 frente a la media móvil de los dos Niños extraordinarios, y los hechos de la cronología (pasa el cursor o pulsa un punto para ir a la entrada). La zona sombreada a la derecha de "hoy" es lo que falta por observar.</figcaption>
+  </figure>
+  <h3 style="margin-top:18px">Hitos: qué dijimos y qué ha pasado</h3>
+  <div class="tablewrap"><table id="seg-tabla" style="min-width:760px"><thead><tr><th>Hito</th><th>Lo proyectado</th><th>Cómo se verifica</th><th>Estado hoy</th><th>Evidencia</th></tr></thead><tbody></tbody></table></div>
+  <p class="note" style="margin-top:8px">Los estados se calculan solos con los datos de la página: "pendiente" antes de la ventana, "en curso" dentro de ella, "cumplido", "adelantado" o "retrasado" según la fecha en que ocurre, y "no se cumplió" si la ventana cierra sin el hecho. ERA5 subestima los extremos diarios, por eso el inicio de las lluvias también se da por cumplido con la primera quebrada activa reportada en el distrito de Zorritos. La edición semanal puede marcar un hito como cumplido con un reporte oficial.</p>
+  <script type="application/json" id="seg-proy">{"temporada":"2026-27",
+ "hitos":[
+  {"id":"h1","nombre":"Inicio de las lluvias fuertes","tipo":"inicio","ventana":["2026-11-16","2026-12-15"],"proyectado":"Segunda quincena de noviembre a primera de diciembre de 2026 (1997: 8 nov; 1982: 3 dic)","criterio":"Primer día con 25 mm o más en el punto de Zorritos (ERA5), o primera quebrada activa reportada en el distrito de Zorritos"},
+  {"id":"h2","nombre":"Pico de la temporada","tipo":"pico","ventana":["2027-02-01","2027-03-31"],"proyectado":"Febrero y marzo de 2027, con enero ya crítico (1983: 606 mm en marzo; 1998: 669 mm en febrero)","criterio":"El mes más lluvioso de la temporada cae en febrero o marzo y supera los 300 mm"},
+  {"id":"h3","nombre":"Final de las lluvias","tipo":"final","ventana":["2027-05-01","2027-05-31"],"proyectado":"Mayo de 2027; en 1983 la temporada se alargó hasta junio","criterio":"Primer mes completo, desde abril, con menos de 100 mm"}
+ ],
+ "mar":[{"desde":"2026-09-01","hasta":"2027-01-31","min":3.0,"etiqueta":"extraordinario (≥ +3,0 °C)"},{"desde":"2027-02-01","hasta":"2027-04-30","min":1.7,"etiqueta":"fuerte (≥ +1,7 °C)"}],
+ "mar_fuente":"ENFEN, comunicado del 16 de octubre de 2026"}</script>
 </section>
 
 <section id="general">
@@ -809,20 +842,20 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
       <div class="ev vh"><div class="when"><b>2025</b>12 feb–7 mar</div><div><h3>60 damnificados y 30 viviendas inhabitables en Zorritos</h3><p>544 afectados, 368 viviendas afectadas y 6 colegios; vías afectadas en Grau, Acapulco, Juan Yuye, El Tiburón y Las Begonias. La municipalidad descolmató la quebrada Los Pozos con maquinaria del MVCS.</p><p class="src">INDECI, reportes 3138 y 0954.</p></div></div>
       <div class="ev m"><div class="when"><b>2025</b>24–26 may</div><div><h3>Oleaje destruye parte del malecón</h3><p>Pistas, alamedas y viviendas afectadas; pérdidas estimadas en más de S/ 300 mil sin contar vías.</p><p class="src">Infobae; La República (26 may 2025).</p></div></div>
       <div class="ev q"><div class="when"><b>2026</b>24 feb</div><div><h3>Más de 530 familias aisladas en Casitas</h3><p>Activación de quebradas cercanas bloqueó las vías del distrito vecino, aguas arriba de Bocapán. El 1–2 de marzo SENAMHI emitió alerta roja por activación de quebradas en Contralmirante Villar.</p><p class="src">Infobae (24 feb 2026); SENAMHI aviso 060.</p></div></div>
-      <div class="ev q"><div class="when"><b>2026</b>1 set</div><div><h3>Estado de emergencia por peligro inminente</h3><p>El DS 124‑2026‑PCM declara en emergencia por 60 días a 893 distritos ante lluvias intensas por El Niño 2026‑27, entre ellos Zorritos, Casitas y Canoas de Punta Sal (nivel 4: capacidad regional y local sobrepasada).</p><p class="src">El Peruano; Infobae (1 set 2026).</p></div></div>
-      <div class="ev m"><div class="when"><b>2026</b>29 set</div><div><h3>El mar avanza sobre 1,5–2 km de la zona hotelera</h3><p>Entre el malecón y la municipalidad; más de 20 hoteles y restaurantes afectados, edificios de hasta cuatro pisos inutilizados y defensas improvisadas arrasadas.</p><p class="src">Infobae (29 set 2026).</p></div></div>
-      <div class="ev vh"><div class="when"><b>2026</b>28 set</div><div><h3>ENFEN: magnitud extraordinaria hasta enero de 2027</h3><p>Comunicado 17‑2026. SENAMHI reporta lluvias de septiembre sin precedente en Tumbes (Cañaveral 78,5 mm/24 h el 26 set; Rica Playa 38,4 mm el 23 set) y advierte que podrían repetirse los 250 mm en pocas horas de 1997‑98.</p><p class="src">ENFEN; SENAMHI; La República (28 set 2026).</p></div></div>
-      <div class="ev q"><div class="when"><b>2026</b>1 oct</div><div><h3>MVCS: 24 acciones preventivas en 11,29 km de cauces</h3><p>Quebradas, drenes y canales en Casitas, Corrales, La Cruz, Pampas de Hospital, Tumbes y Zorritos; descolmatación de la quebrada Pedregal. La ANA inicia la limpieza del río Tumbes (250 660 m³).</p><p class="src">Perú Construye (1 oct 2026); ANA.</p></div></div>
-      <div class="ev m" data-upd="2026-10-19"><div class="when"><b>2026</b>13–19 oct</div><div><h3>Nuevo oleaje anómalo; 30–35 negocios afectados en Zorritos</h3><p>Alerta de la DHN del 13 de octubre para el 15–19. En unos 2 km del sector turístico el mar sigue avanzando y destapó el pozo petrolero de 1865.</p><p class="src">Infobae (15 oct 2026); Canal N.</p></div></div>
-      <div class="ev vh" data-upd="2026-10-19"><div class="when"><b>2026</b>15 oct</div><div><h3>Fujimori: "evacúen desde ya"</h3><p>Desde el COEN: 1 800 puntos de riesgo, 536 priorizados, 70 % de avance; albergues para 30 000 personas; hospitales de campaña a Tumbes; S/ 2 000 millones en 14 decretos. Defensa queda a cargo de Tumbes.</p><p class="src">RPP; La República; Infobae (15–16 oct 2026).</p></div></div>
-      <div class="ev vh" data-upd="2026-10-19"><div class="when"><b>2026</b>16 oct</div><div><h3>ENFEN: extraordinario hasta enero, fuerte hasta el otoño</h3><p>Ríos del norte, incluido el Tumbes, con caudales sobre lo normal desde noviembre. NOAA: 83 % de probabilidad de Niño fuerte en enero‑marzo.</p><p class="src">Infobae; RPP (16–17 oct 2026).</p></div></div>
-      <div class="ev a" data-upd="2026-10-19"><div class="when"><b>2026</b>19 oct</div><div><h3>S/ 191,9 millones más para limpiar ríos y quebradas</h3><p>Transferencia del MEF (S/ 90,8 millones al Midagri). El ministro Vinelli habla de un "Mega Niño" y ubica a Tumbes entre las tres regiones de mayor riesgo; 600 puntos críticos y 13 000 carpas.</p><p class="src">Infobae; Diario Correo (19 oct 2026).</p></div></div>
-      <div class="ev q" data-upd="2026-10-23"><div class="when"><b>2026</b>19 oct</div><div><h3>Lluvias dañan 19 viviendas en La Cruz</h3><p>Distrito vecino de Zorritos por el norte. Canal N reportó una cifra preliminar distinta: 14 viviendas en La Cruz y 4 en Matapalo.</p><p class="src">INDECI, citado por El Comercio; Canal N (20 oct 2026).</p></div></div>
-      <div class="ev q" data-upd="2026-10-23"><div class="when"><b>2026</b>20 oct</div><div><h3>Tres quebradas activas en Pampas de Hospital</h3><p>Peña Blanca, Chacritas e Higuerón; vías hacia zonas agrícolas afectadas y aniegos en la ciudad de Tumbes. El COEN había puesto a Contralmirante Villar, Tumbes y Zarumilla en nivel rojo por lluvias el 20 y 21.</p><p class="src">COEN; El Comercio; La República; Andina (20–21 oct 2026).</p></div></div>
-      <div class="ev m" data-upd="2026-10-23"><div class="when"><b>2026</b>20–23 oct</div><div><h3>Oleaje fuerte en el litoral norte</h3><p>Aviso especial 42‑26 de la DHN: fuerte desde la noche del 20 y de nuevo desde la noche del 22, moderado desde la tarde del 23. Algunos medios lo extienden hasta el 25.</p><p class="src">Exitosa; El Popular (20–21 oct 2026).</p></div></div>
-      <div class="ev q" data-upd="2026-10-23"><div class="when"><b>2026</b>22 oct</div><div><h3>Nuevas lluvias y aniegos en Tumbes</h3><p>Lluvia de moderada a fuerte intensidad reactiva las quebradas de Pampas de Hospital y anega sectores de la ciudad de Tumbes. Un meteorólogo reportó 70 mm en el aeropuerto (dato no oficial).</p><p class="src">Andina; Infobae (22 oct 2026).</p></div></div>
-      <div class="ev vh" data-upd="2026-10-23"><div class="when"><b>2026</b>23 oct</div><div><h3>Aviso de lluvias fuertes a extremas hasta el 25</h3><p>SENAMHI prevé hasta 40 l/m² en la costa norte, sobre todo en Tumbes. El COEN anticipa nivel rojo el viernes en Contralmirante Villar, Tumbes y Zarumilla.</p><p class="src">Andina; El Comercio; RPP (23 oct 2026).</p></div></div>
-      <div class="ev q" data-upd="2026-10-26"><div class="when"><b>2026</b>24–26 oct</div><div><h3>Lluvias del fin de semana: 55 viviendas afectadas en la ciudad de Tumbes</h3><p>INDECI reporta además 5 colegios y 3 establecimientos de salud dañados; aniegos en Puerto Pizarro, Los Jardines y Pampa Grande, y colegios en clases virtuales el lunes 26. Sin reportes de daños en Zorritos ni en el resto de Contralmirante Villar.</p><p class="src">Andina; Diario Correo (26 oct 2026); SENAMHI.</p></div></div>
+      <div class="ev q" data-lugar="nacional"><div class="when"><b>2026</b>1 set</div><div><h3>Estado de emergencia por peligro inminente</h3><p>El DS 124‑2026‑PCM declara en emergencia por 60 días a 893 distritos ante lluvias intensas por El Niño 2026‑27, entre ellos Zorritos, Casitas y Canoas de Punta Sal (nivel 4: capacidad regional y local sobrepasada).</p><p class="src">El Peruano; Infobae (1 set 2026).</p></div></div>
+      <div class="ev m" data-lugar="zorritos"><div class="when"><b>2026</b>29 set</div><div><h3>El mar avanza sobre 1,5–2 km de la zona hotelera</h3><p>Entre el malecón y la municipalidad; más de 20 hoteles y restaurantes afectados, edificios de hasta cuatro pisos inutilizados y defensas improvisadas arrasadas.</p><p class="src">Infobae (29 set 2026).</p></div></div>
+      <div class="ev vh" data-lugar="nacional"><div class="when"><b>2026</b>28 set</div><div><h3>ENFEN: magnitud extraordinaria hasta enero de 2027</h3><p>Comunicado 17‑2026. SENAMHI reporta lluvias de septiembre sin precedente en Tumbes (Cañaveral 78,5 mm/24 h el 26 set; Rica Playa 38,4 mm el 23 set) y advierte que podrían repetirse los 250 mm en pocas horas de 1997‑98.</p><p class="src">ENFEN; SENAMHI; La República (28 set 2026).</p></div></div>
+      <div class="ev q" data-lugar="zorritos"><div class="when"><b>2026</b>1 oct</div><div><h3>MVCS: 24 acciones preventivas en 11,29 km de cauces</h3><p>Quebradas, drenes y canales en Casitas, Corrales, La Cruz, Pampas de Hospital, Tumbes y Zorritos; descolmatación de la quebrada Pedregal. La ANA inicia la limpieza del río Tumbes (250 660 m³).</p><p class="src">Perú Construye (1 oct 2026); ANA.</p></div></div>
+      <div class="ev m" data-upd="2026-10-19" data-lugar="zorritos"><div class="when"><b>2026</b>13–19 oct</div><div><h3>Nuevo oleaje anómalo; 30–35 negocios afectados en Zorritos</h3><p>Alerta de la DHN del 13 de octubre para el 15–19. En unos 2 km del sector turístico el mar sigue avanzando y destapó el pozo petrolero de 1865.</p><p class="src">Infobae (15 oct 2026); Canal N.</p></div></div>
+      <div class="ev vh" data-upd="2026-10-19" data-lugar="nacional"><div class="when"><b>2026</b>15 oct</div><div><h3>Fujimori: "evacúen desde ya"</h3><p>Desde el COEN: 1 800 puntos de riesgo, 536 priorizados, 70 % de avance; albergues para 30 000 personas; hospitales de campaña a Tumbes; S/ 2 000 millones en 14 decretos. Defensa queda a cargo de Tumbes.</p><p class="src">RPP; La República; Infobae (15–16 oct 2026).</p></div></div>
+      <div class="ev vh" data-upd="2026-10-19" data-lugar="nacional"><div class="when"><b>2026</b>16 oct</div><div><h3>ENFEN: extraordinario hasta enero, fuerte hasta el otoño</h3><p>Ríos del norte, incluido el Tumbes, con caudales sobre lo normal desde noviembre. NOAA: 83 % de probabilidad de Niño fuerte en enero‑marzo.</p><p class="src">Infobae; RPP (16–17 oct 2026).</p></div></div>
+      <div class="ev a" data-upd="2026-10-19" data-lugar="nacional"><div class="when"><b>2026</b>19 oct</div><div><h3>S/ 191,9 millones más para limpiar ríos y quebradas</h3><p>Transferencia del MEF (S/ 90,8 millones al Midagri). El ministro Vinelli habla de un "Mega Niño" y ubica a Tumbes entre las tres regiones de mayor riesgo; 600 puntos críticos y 13 000 carpas.</p><p class="src">Infobae; Diario Correo (19 oct 2026).</p></div></div>
+      <div class="ev q" data-upd="2026-10-23" data-lugar="tumbes"><div class="when"><b>2026</b>19 oct</div><div><h3>Lluvias dañan 19 viviendas en La Cruz</h3><p>Distrito vecino de Zorritos por el norte. Canal N reportó una cifra preliminar distinta: 14 viviendas en La Cruz y 4 en Matapalo.</p><p class="src">INDECI, citado por El Comercio; Canal N (20 oct 2026).</p></div></div>
+      <div class="ev q" data-upd="2026-10-23" data-lugar="tumbes"><div class="when"><b>2026</b>20 oct</div><div><h3>Tres quebradas activas en Pampas de Hospital</h3><p>Peña Blanca, Chacritas e Higuerón; vías hacia zonas agrícolas afectadas y aniegos en la ciudad de Tumbes. El COEN había puesto a Contralmirante Villar, Tumbes y Zarumilla en nivel rojo por lluvias el 20 y 21.</p><p class="src">COEN; El Comercio; La República; Andina (20–21 oct 2026).</p></div></div>
+      <div class="ev m" data-upd="2026-10-23" data-lugar="tumbes"><div class="when"><b>2026</b>20–23 oct</div><div><h3>Oleaje fuerte en el litoral norte</h3><p>Aviso especial 42‑26 de la DHN: fuerte desde la noche del 20 y de nuevo desde la noche del 22, moderado desde la tarde del 23. Algunos medios lo extienden hasta el 25.</p><p class="src">Exitosa; El Popular (20–21 oct 2026).</p></div></div>
+      <div class="ev q" data-upd="2026-10-23" data-lugar="tumbes"><div class="when"><b>2026</b>22 oct</div><div><h3>Nuevas lluvias y aniegos en Tumbes</h3><p>Lluvia de moderada a fuerte intensidad reactiva las quebradas de Pampas de Hospital y anega sectores de la ciudad de Tumbes. Un meteorólogo reportó 70 mm en el aeropuerto (dato no oficial).</p><p class="src">Andina; Infobae (22 oct 2026).</p></div></div>
+      <div class="ev vh" data-upd="2026-10-23" data-lugar="zorritos"><div class="when"><b>2026</b>23 oct</div><div><h3>Aviso de lluvias fuertes a extremas hasta el 25</h3><p>SENAMHI prevé hasta 40 l/m² en la costa norte, sobre todo en Tumbes. El COEN anticipa nivel rojo el viernes en Contralmirante Villar, Tumbes y Zarumilla.</p><p class="src">Andina; El Comercio; RPP (23 oct 2026).</p></div></div>
+      <div class="ev q" data-upd="2026-10-26" data-lugar="tumbes"><div class="when"><b>2026</b>24–26 oct</div><div><h3>Lluvias del fin de semana: 55 viviendas afectadas en la ciudad de Tumbes</h3><p>INDECI reporta además 5 colegios y 3 establecimientos de salud dañados; aniegos en Puerto Pizarro, Los Jardines y Pampa Grande, y colegios en clases virtuales el lunes 26. Sin reportes de daños en Zorritos ni en el resto de Contralmirante Villar.</p><p class="src">Andina; Diario Correo (26 oct 2026); SENAMHI.</p></div></div>
       <!-- CRONOLOGIA:END -->
     </div>
     <div style="display:grid;gap:18px;align-content:start">
@@ -920,6 +953,7 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
       <li>Cronología: entrada del 24–26 de octubre.</li>
       <li>Gráficos regenerados: mar (NOAA, semana del 21 de octubre: +5,2 °C) y lluvia (ERA5 al 26 de octubre). Desde esta edición se regeneran solos los martes y viernes.</li>
       <li>Nuevo sistema de marcado: etiquetas "Nuevo" y "Actualizado" en cada elemento, resumen de cambios en la cabecera y este historial.</li>
+      <li>Nueva sección "Seguimiento: lo proyectado frente a lo que pasa": superpone el calendario de riesgo, el pronóstico del mar y las ventanas de los hitos con la lluvia diaria, la temperatura semanal y los hechos de la cronología; los hitos cambian de estado solos.</li>
     </ul></div>
     <div class="h-ent" data-date="2026-10-23"><div class="when"><b>23 oct</b>2026 · viernes · edición automática</div><ul>
       <li>Novedades: primeras quebradas activas en la provincia de Tumbes (19–22 de octubre) y aviso de lluvias fuertes del 23 al 25; tarjetas del mar, del Gobierno, del ENFEN y de las obras resumidas.</li>
@@ -971,6 +1005,178 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
 <script>
 (function(){
  try{
+  var box=document.getElementById('seg-chart'); if(!box) return;
+  function J(id){ var e=document.getElementById(id); if(!e) return null; try{ return JSON.parse(e.textContent); }catch(x){ return null; } }
+  var P=J('seg-proy'), RAIN=J('seg-lluvia'), SST=J('seg-tsm');
+  if(!P){ box.textContent='No se pudo leer la configuración de la proyección.'; return; }
+  var MO={ene:1,feb:2,mar:3,abr:4,may:5,jun:6,jul:7,ago:8,set:9,sep:9,oct:10,nov:11,dic:12}, MN=['ene','feb','mar','abr','may','jun','jul','ago','set','oct','nov','dic'];
+  var MNL=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  function D(s){ var p=s.split('-'); return new Date(+p[0],+p[1]-1,+p[2]); }
+  function fd(d){ return d.getDate()+' '+MN[d.getMonth()]; }
+  function cap(t){ return t.charAt(0).toUpperCase()+t.slice(1); }
+  function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function dec(v){ return (v<0?'−':'+')+Math.abs(v).toFixed(1).replace('.',','); }
+  function mm0(v){ return Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' '); }
+  var Y0=parseInt(P.temporada.slice(0,4),10); var S0=new Date(Y0,8,1), S1=new Date(Y0+1,5,30);
+  var DAYS=Math.round((S1-S0)/864e5)+1;
+  var now=new Date(); now.setHours(0,0,0,0); var today=now<S0?S0:(now>S1?S1:now);
+  function di(d){ return Math.round((d-S0)/864e5); }
+  var W=960, L=50, R=18, pw=W-L-R;
+  function X(d){ return L+di(d)*pw/DAYS; } function Xi(i){ return L+i*pw/DAYS; }
+  var CAL={y:44,h:42}, MAR={y:110,h:110}, LLU={y:248,h:140}, HEC={y:416,h:112}; var H=HEC.y+HEC.h+24;
+  var g=[];
+  g.push('<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-labelledby="seg-title" style="font-family:var(--body);font-size:12.5px">');
+  g.push('<title id="seg-title">Proyección frente a observación, temporada '+esc(P.temporada)+': calendario de riesgo, temperatura del mar, lluvia diaria y hechos registrados</title>');
+  // meses
+  var months=[]; for(var k=0;k<10;k++){ var m=(8+k)%12, y=Y0+(k>=4?1:0); months.push({m:m,y:y,start:new Date(y,m,1),end:new Date(y,m+1,0)}); }
+  function lane(o,title){ g.push('<rect x="'+L+'" y="'+o.y+'" width="'+pw+'" height="'+o.h+'" fill="var(--bg)" stroke="var(--line)"/>');
+    g.push('<text x="'+L+'" y="'+(o.y-6)+'" fill="var(--muted)" style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase">'+esc(title)+'</text>'); }
+  lane(CAL,'Lo proyectado: calendario de riesgo y ventanas de los hitos');
+  lane(MAR,'Mar: anomalía semanal Niño 1+2 (NOAA) frente al pronóstico del ENFEN');
+  lane(LLU,'Lluvia diaria en el punto de Zorritos, ERA5 (mm) frente a la media de 7 días de 1982‑83 y 1997‑98');
+  lane(HEC,'Hechos registrados en la cronología');
+  // sombra del futuro
+  [MAR,LLU,HEC].forEach(function(o){ g.push('<rect x="'+X(today).toFixed(1)+'" y="'+o.y+'" width="'+(L+pw-X(today)).toFixed(1)+'" height="'+o.h+'" fill="var(--panel2)" opacity=".55"/>'); });
+  months.forEach(function(mo,k){ var x0=X(mo.start), x1=Xi(di(mo.end)+1);
+    [CAL,MAR,LLU,HEC].forEach(function(o){ g.push('<line x1="'+x0.toFixed(1)+'" x2="'+x0.toFixed(1)+'" y1="'+o.y+'" y2="'+(o.y+o.h)+'" stroke="var(--line)" stroke-width="1"/>'); });
+    var lab=cap(MN[mo.m])+((k===0||mo.m===0)?' '+mo.y:'');
+    g.push('<text x="'+((x0+x1)/2).toFixed(1)+'" y="16" text-anchor="middle" fill="var(--fg)" style="font-size:12.5px;font-weight:600">'+lab+'</text>'); });
+  // ---- carril calendario
+  var cells=document.querySelectorAll('#proyeccion .strip .cell'); var COL={l1:['var(--haz-m)',.6],l2:['var(--haz-h)',.65],l3:['var(--haz-vh)',.6],l4:['#7a1016',.75]};
+  months.forEach(function(mo,k){ var c=cells[k]; if(!c) return; var lv=(c.className.match(/l[1-4]/)||['l1'])[0]; var x0=X(mo.start), x1=Xi(di(mo.end)+1);
+    var tip=c.textContent.replace(/^\s*\S+\s*/,'').trim();
+    g.push('<rect x="'+x0.toFixed(1)+'" y="'+(CAL.y+3)+'" width="'+(x1-x0).toFixed(1)+'" height="18" fill="'+COL[lv][0]+'" opacity="'+COL[lv][1]+'" rx="2"><title>'+esc(cap(MNL[mo.m])+': '+tip)+'</title></rect>'); });
+  P.hitos.forEach(function(h,i){ var a=D(h.ventana[0]), b=D(h.ventana[1]); var x0=X(a), x1=Xi(di(b)+1);
+    g.push('<rect x="'+x0.toFixed(1)+'" y="'+(CAL.y+26)+'" width="'+(x1-x0).toFixed(1)+'" height="5" fill="var(--fg)" opacity=".7" rx="1"><title>'+esc(h.nombre+': '+h.proyectado)+'</title></rect>');
+    g.push('<text x="'+(x0+2).toFixed(1)+'" y="'+(CAL.y+40)+'" fill="var(--fg)" style="font-size:11px;font-weight:600">H'+(i+1)+' '+esc(h.tipo)+'</text>'); });
+  // ---- carril mar
+  var vmin=-1, vmax=6; function Ym(v){ return MAR.y+MAR.h-(v-vmin)/(vmax-vmin)*MAR.h; }
+  (P.mar||[]).forEach(function(sg){ var x0=X(D(sg.desde)), x1=Xi(di(D(sg.hasta))+1); var yt=Ym(vmax), yb=Ym(sg.min);
+    g.push('<rect x="'+x0.toFixed(1)+'" y="'+yt.toFixed(1)+'" width="'+(x1-x0).toFixed(1)+'" height="'+(yb-yt).toFixed(1)+'" fill="var(--haz-vh)" opacity=".12"/>');
+    g.push('<text x="'+(x1-5).toFixed(1)+'" y="'+(yt+13).toFixed(1)+'" text-anchor="end" fill="var(--haz-vh)" style="font-size:11px;font-weight:600">ENFEN: '+esc(sg.etiqueta)+'</text>'); });
+  [[0,'0'],[1.7,'fuerte +1,7'],[3.0,'extraordinario +3,0']].forEach(function(t){ var yy=Ym(t[0]);
+    g.push('<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+yy.toFixed(1)+'" y2="'+yy.toFixed(1)+'" stroke="var(--muted)" stroke-width="1" '+(t[0]?'stroke-dasharray="4 3"':'')+' opacity=".7"/>');
+    g.push('<text x="'+(L+pw-4)+'" y="'+(yy-3).toFixed(1)+'" text-anchor="end" fill="var(--muted)" style="font-family:var(--mono);font-size:10.5px">'+t[1]+'</text>'); });
+  [2,4,6].forEach(function(v){ g.push('<text x="'+(L-4)+'" y="'+(Ym(v)+4).toFixed(1)+'" text-anchor="end" fill="var(--muted)" style="font-family:var(--mono);font-size:10.5px">+'+v+'</text>'); });
+  var wk=(SST&&SST.semanal||[]).map(function(p){ return [D(p[0]),p[1]]; }).filter(function(p){ return p[0]>=S0&&p[0]<=S1; }), lastw=null;
+  if(wk.length){ g.push('<polyline fill="none" stroke="#c1272d" stroke-width="2.5" stroke-linejoin="round" points="'+wk.map(function(p){ return X(p[0]).toFixed(1)+','+Ym(p[1]).toFixed(1); }).join(' ')+'"/>');
+    wk.forEach(function(p){ g.push('<circle cx="'+X(p[0]).toFixed(1)+'" cy="'+Ym(p[1]).toFixed(1)+'" r="2.6" fill="#c1272d"><title>'+esc('Semana del '+fd(p[0])+': '+dec(p[1])+' °C')+'</title></circle>'); });
+    lastw=wk[wk.length-1]; var lx=X(lastw[0]), right=lx<L+pw-170;
+    g.push('<text x="'+(right?lx+8:lx-8).toFixed(1)+'" y="'+(Ym(lastw[1])+4).toFixed(1)+'" text-anchor="'+(right?'start':'end')+'" fill="var(--fg)" style="font-size:12px;font-weight:600">'+dec(lastw[1])+' °C · semana del '+fd(lastw[0])+'</text>'); }
+  else g.push('<text x="'+(L+8)+'" y="'+(MAR.y+MAR.h-8)+'" fill="var(--muted)" style="font-size:12px">Sin datos semanales de NOAA todavía.</text>');
+  // ---- carril lluvia
+  var mm=(RAIN&&RAIN.mm)||[], hasta=RAIN&&RAIN.hasta?D(RAIN.hasta):null;
+  function sm7(a){ var o=[]; for(var i=0;i<DAYS;i++){ var s=0,c=0; for(var j=i-3;j<=i+3;j++){ if(j>=0&&j<a.length&&a[j]!=null){ s+=a[j]; c++; } } o.push(c?s/c:0); } return o; }
+  var a83=sm7((RAIN&&RAIN.a83)||[]), a98=sm7((RAIN&&RAIN.a98)||[]);
+  var rmax=40; mm.forEach(function(v){ if(v!=null&&v*1.15>rmax) rmax=v*1.15; }); a83.concat(a98).forEach(function(v){ if(v*1.15>rmax) rmax=v*1.15; }); rmax=Math.ceil(rmax/10)*10;
+  function Yr(v){ return LLU.y+LLU.h-v/rmax*LLU.h; }
+  var step=rmax<=60?10:(rmax<=120?20:50);
+  for(var v=step; v<rmax; v+=step){ g.push('<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+Yr(v).toFixed(1)+'" y2="'+Yr(v).toFixed(1)+'" stroke="var(--line)" stroke-width="1"/>'); g.push('<text x="'+(L-4)+'" y="'+(Yr(v)+4).toFixed(1)+'" text-anchor="end" fill="var(--muted)" style="font-family:var(--mono);font-size:10.5px">'+v+'</text>'); }
+  function pl(a,col){ if(!a.some(function(v){ return v>0; })) return; g.push('<polyline fill="none" stroke="'+col+'" stroke-width="1.6" opacity=".8" points="'+a.map(function(v,i){ return Xi(i).toFixed(1)+','+Yr(Math.min(v,rmax)).toFixed(1); }).join(' ')+'"/>'); }
+  pl(a83,'#1f4e79'); pl(a98,'#2a9d8f');
+  var bw=Math.max(1.4,pw/DAYS*0.9);
+  mm.forEach(function(v,i){ if(v==null||v<=0) return; var d=new Date(Y0,8,1+i); g.push('<rect x="'+(Xi(i)-bw/2).toFixed(1)+'" y="'+Yr(v).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+(LLU.y+LLU.h-Yr(v)).toFixed(1)+'" fill="#c1272d">'+(v>=3?'<title>'+esc(fd(d)+': '+v.toFixed(1).replace('.',',')+' mm')+'</title>':'')+'</rect>'); });
+  g.push('<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+Yr(25).toFixed(1)+'" y2="'+Yr(25).toFixed(1)+'" stroke="var(--fg)" stroke-width="1" stroke-dasharray="4 3" opacity=".7"/>');
+  g.push('<text x="'+(L+pw-4)+'" y="'+(Yr(25)-3).toFixed(1)+'" text-anchor="end" fill="var(--fg)" style="font-size:10.5px">25 mm · día de lluvia fuerte</text>');
+  if(hasta) g.push('<text x="'+(L+6)+'" y="'+(LLU.y+13)+'" fill="var(--muted)" style="font-size:11px">ERA5 hasta el '+fd(hasta)+'</text>');
+  // ---- carril hechos (de la cronología)
+  var evs=[]; var evn=0;
+  document.querySelectorAll('#cronologia .ev').forEach(function(ev){
+    var w=ev.querySelector('.when'), b=w&&w.querySelector('b'); if(!b) return; var yr=parseInt(b.textContent,10); if(!(yr>=Y0&&yr<=Y0+1)) return;
+    var t=w.textContent.replace(b.textContent,'').trim().toLowerCase(); var d0=null,d1=null,m;
+    if((m=t.match(/^(\d{1,2})\s+([a-z]{3})\w*\s*[–-]\s*(\d{1,2})\s+([a-z]{3})/))&&MO[m[2]]&&MO[m[4]]){ d0=new Date(yr,MO[m[2]]-1,+m[1]); d1=new Date(yr+(MO[m[4]]<MO[m[2]]?1:0),MO[m[4]]-1,+m[3]); }
+    else if((m=t.match(/^(\d{1,2})(?:\s*[–-]\s*(\d{1,2}))?\s+([a-z]{3})/))&&MO[m[3]]){ d0=new Date(yr,MO[m[3]]-1,+m[1]); if(m[2]) d1=new Date(yr,MO[m[3]]-1,+m[2]); }
+    if(!d0||d0<S0||d0>S1) return;
+    var h3=ev.querySelector('h3'), title=h3?h3.textContent.trim():''; var txt=ev.textContent.toLowerCase();
+    var lug=ev.getAttribute('data-lugar')||(/zorritos|bocap|acapulco|caleta grau|cancas|casitas|contralmirante|punta sal|los pozos|tucillal|tibur/.test(title.toLowerCase())?'zorritos':'otros');
+    var cls=ev.className; var row=/\bm\b/.test(cls)?1:(/\bq\b/.test(cls)?0:(/\ba\b/.test(cls)?2:(/lluvia|quebrada|aniego/.test(title.toLowerCase())?0:(/mar|oleaje|marea/.test(title.toLowerCase())?1:2))));
+    if(!ev.id) ev.id='ev-'+(++evn);
+    evs.push({d0:d0,d1:d1,row:row,vh:/\bvh\b/.test(cls),lug:lug,title:title,txt:txt,id:ev.id,cls:cls});
+  });
+  var ROWS=[['Lluvias y quebradas','var(--haz-h)'],['Mar','var(--sea)'],['Gobierno, pronósticos y obras','var(--haz-m)']];
+  ROWS.forEach(function(r,i){ var yy=HEC.y+22+i*34; g.push('<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+yy+'" y2="'+yy+'" stroke="var(--line)" stroke-width="1"/>');
+    g.push('<text x="'+(L+pw-6)+'" y="'+(yy-5)+'" text-anchor="end" fill="var(--muted)" style="font-size:11px">'+r[0]+'</text>'); });
+  var placed=[[],[],[]];
+  evs.sort(function(a,b){ return a.d0-b.d0; }).forEach(function(e){ var yy=HEC.y+22+e.row*34, x=X(e.d0); var lvl=placed[e.row].filter(function(px){ return Math.abs(px-x)<10; }).length; placed[e.row].push(x);
+    var off=[0,-12,12,-24,24][Math.min(lvl,4)], col=e.vh?'var(--haz-vh)':ROWS[e.row][1], r=e.vh?6.5:5.5, fill=e.lug==='zorritos'?col:'var(--bg)';
+    if(e.d1&&e.d1>e.d0) g.push('<line x1="'+x.toFixed(1)+'" x2="'+X(e.d1).toFixed(1)+'" y1="'+(yy+off)+'" y2="'+(yy+off)+'" stroke="'+col+'" stroke-width="3" opacity=".5"/>');
+    g.push('<a href="#'+e.id+'"><circle cx="'+x.toFixed(1)+'" cy="'+(yy+off)+'" r="'+r+'" fill="'+fill+'" stroke="'+col+'" stroke-width="2.2" style="cursor:pointer"><title>'+esc(fd(e.d0)+(e.d1?'–'+fd(e.d1):'')+' · '+e.title+(e.lug==='zorritos'?' (Zorritos / Contralmirante Villar)':''))+'</title></circle></a>'); });
+  // ---- hoy
+  var xt=X(today);
+  g.push('<line x1="'+xt.toFixed(1)+'" x2="'+xt.toFixed(1)+'" y1="22" y2="'+(H-14)+'" stroke="var(--fg)" stroke-width="1.5" stroke-dasharray="4 3"/>');
+  g.push('<text x="'+(xt+5).toFixed(1)+'" y="'+(H-4)+'" fill="var(--fg)" style="font-size:12px;font-weight:700">hoy · '+fd(today)+'</text>');
+  g.push('</svg>'); box.innerHTML=g.join('\n');
+
+  // ---------- evaluación de hitos
+  var dd=function(i){ return new Date(Y0,8,1+i); };
+  var maxDay={v:0,i:-1}; mm.forEach(function(v,i){ if(v!=null&&v>maxDay.v){ maxDay={v:v,i:i}; } });
+  var onsetI=-1; for(var i=0;i<mm.length;i++){ if(mm[i]!=null&&mm[i]>=25){ onsetI=i; break; } }
+  var tot=months.map(function(mo){ var s=0,c=0; for(var i=0;i<mm.length;i++){ var d=dd(i); if(d>=mo.start&&d<=mo.end&&mm[i]!=null){ s+=mm[i]; c++; } } return {s:s,c:c,full:hasta&&hasta>=mo.end,started:hasta&&hasta>=mo.start}; });
+  var firstQ=null; evs.forEach(function(e){ if(!firstQ&&e.lug==='zorritos'&&/quebrada/.test(e.txt)&&/activ|desbord|torrente|lodo|aisl|crecida/.test(e.txt)&&(e.row===0||e.vh)) firstQ=e; });
+  function days(a,b){ return Math.round((b-a)/864e5); }
+  function stat(cls,txt,ev){ return {cls:cls,txt:txt,ev:ev}; }
+  function evalH(h){
+    var a=D(h.ventana[0]), b=D(h.ventana[1]), ov=h.cumplido?D(h.cumplido):null;
+    if(h.tipo==='inicio'){
+      var cands=[]; if(onsetI>=0) cands.push({d:dd(onsetI),q:'ERA5: '+mm[onsetI].toFixed(1).replace('.',',')+' mm el '+fd(dd(onsetI))}); if(firstQ) cands.push({d:firstQ.d0,q:'cronología: '+firstQ.title+' ('+fd(firstQ.d0)+')'}); if(ov) cands.push({d:ov,q:h.evidencia||'reporte oficial'});
+      cands.sort(function(p,q){ return p.d-q.d; });
+      var ev='ERA5 hasta el '+(hasta?fd(hasta):'—')+': máximo diario '+(maxDay.i>=0?maxDay.v.toFixed(1).replace('.',',')+' mm el '+fd(dd(maxDay.i)):'—')+(onsetI>=0?'; primer día ≥ 25 mm: '+fd(dd(onsetI)):'; ningún día llega a 25 mm')+'. Cronología: '+(firstQ?'primera quebrada activa en Zorritos el '+fd(firstQ.d0)+' ('+firstQ.title+')':'sin quebradas activas reportadas en el distrito de Zorritos')+'.';
+      if(cands.length){ var c=cands[0]; if(c.d<a) return stat('warn','Adelantado: ocurrió el '+fd(c.d)+', '+days(c.d,a)+' días antes de la ventana',ev+' Fuente del hito: '+c.q+'.'); if(c.d<=b) return stat('ok','Cumplido en fecha: '+fd(c.d),ev+' Fuente del hito: '+c.q+'.'); return stat('bad','Retrasado: ocurrió el '+fd(c.d)+', '+days(b,c.d)+' días después de la ventana',ev); }
+      if(today<a) return stat('pend','Pendiente: la ventana abre el '+fd(a)+' (faltan '+days(today,a)+' días)',ev);
+      if(today<=b) return stat('run','En curso: dentro de la ventana, aún sin lluvia fuerte ni quebradas activas en Zorritos',ev);
+      return stat('bad','Retrasado: la ventana cerró el '+fd(b)+' y aún no ocurre',ev);
+    }
+    if(h.tipo==='pico'){
+      var best=-1; tot.forEach(function(t,i){ if(t.started&&(best<0||t.s>tot[best].s)) best=i; });
+      var bm=best>=0?cap(MNL[months[best].m])+' con '+mm0(tot[best].s)+' mm'+(tot[best].full?'':' (mes incompleto)'):'—';
+      var ev='Mes más lluvioso hasta ahora: '+bm+'. Análogos: 1983, marzo 606 mm; 1998, febrero 669 mm.';
+      if(ov) return stat('ok','Cumplido: '+(h.evidencia||fd(ov)),ev);
+      if(today<a) return stat('pend','Pendiente: ventana del '+fd(a)+' al '+fd(b),ev);
+      var endIdx=months.findIndex(function(mo){ return mo.start<=b&&mo.end>=b; });
+      if(today<=b||!(endIdx>=0&&tot[endIdx].full)) return stat('run','En curso: '+bm,ev);
+      var inWin=best>=0&&months[best].start>=a&&months[best].end<=b;
+      if(inWin&&tot[best].s>=300) return stat('ok','Cumplido: el pico fue '+bm,ev);
+      if(inWin) return stat('warn','A medias: el pico cayó en la ventana pero con solo '+mm0(tot[best].s)+' mm',ev);
+      return stat('bad','No se cumplió: el mes más lluvioso fue '+bm,ev);
+    }
+    if(h.tipo==='final'){
+      var apr=months.findIndex(function(mo){ return mo.m===3; }); var fin=-1; for(var i=apr;i<months.length;i++){ if(tot[i].full&&tot[i].s<100){ fin=i; break; } }
+      var cur=-1; tot.forEach(function(t,i){ if(t.started) cur=i; });
+      var ev=cur>=apr?('Desde abril: '+months.slice(apr,cur+1).map(function(mo,j){ return cap(MNL[mo.m])+' '+mm0(tot[apr+j].s)+' mm'+(tot[apr+j].full?'':' (incompleto)'); }).join(', ')+'.'):'Aún no hay datos de abril en adelante.';
+      ev+=' Análogos: 1998 terminó en mayo (143 mm); 1983 siguió en mayo (524 mm) y junio.';
+      if(ov) return stat('ok','Cumplido: '+(h.evidencia||fd(ov)),ev);
+      if(today<months[apr].start) return stat('pend','Pendiente: se evalúa desde abril (ventana: '+cap(MNL[a.getMonth()])+')',ev);
+      if(fin>=0){ var fm=months[fin]; if(fm.end<a) return stat('warn','Adelantado: '+cap(MNL[fm.m])+' ya bajó de 100 mm ('+mm0(tot[fin].s)+' mm)',ev); if(fm.start<=b) return stat('ok','Cumplido: '+cap(MNL[fm.m])+' con '+mm0(tot[fin].s)+' mm',ev); return stat('warn','Alargada, como en 1983: terminó en '+MNL[fm.m]+' ('+mm0(tot[fin].s)+' mm)',ev); }
+      if(today<=S1) return stat('run','En curso: las lluvias siguen por encima de 100 mm mensuales',ev);
+      return stat('bad','No terminó dentro de la temporada analizada',ev);
+    }
+    return stat('pend','Sin regla de evaluación','');
+  }
+  function evalMar(){
+    if(!lastw) return stat('pend','Sin datos semanales todavía','');
+    var seg=(P.mar||[]).filter(function(sg){ return D(sg.desde)<=lastw[0]&&lastw[0]<=D(sg.hasta); })[0];
+    if(!seg) return stat('pend','Sin pronóstico del ENFEN para esta fecha','Última semana: '+dec(lastw[1])+' °C ('+fd(lastw[0])+').');
+    var below=0,n=0; wk.forEach(function(p){ var sg=(P.mar||[]).filter(function(q){ return D(q.desde)<=p[0]&&p[0]<=D(q.hasta); })[0]; if(sg){ n++; if(p[1]<sg.min) below++; } });
+    var ev='Semana del '+fd(lastw[0])+': '+dec(lastw[1])+' °C. Semanas por debajo del umbral previsto desde el '+fd(S0)+': '+below+' de '+n+'. Pronóstico: '+esc(P.mar_fuente||'ENFEN')+'.';
+    if(lastw[1]>=seg.min) return stat('ok','Se cumple: '+dec(lastw[1])+' °C, sobre el umbral '+seg.etiqueta,ev);
+    return stat('bad','Por debajo de lo previsto: '+dec(lastw[1])+' °C frente a '+seg.etiqueta,ev);
+  }
+  var res=[]; var mar=evalMar(); res.push({nombre:'Mar frente a Tumbes',proy:(P.mar||[]).map(function(sg){ return cap(sg.etiqueta)+' hasta el '+fd(D(sg.hasta))+' de '+D(sg.hasta).getFullYear(); }).join('; ')+' ('+esc(P.mar_fuente||'ENFEN')+')',crit:'Anomalía semanal de NOAA en la región Niño 1+2 igual o mayor que el umbral del tramo',st:mar,chip:'Mar'});
+  P.hitos.forEach(function(h,i){ var st=evalH(h); res.push({nombre:'H'+(i+1)+' · '+h.nombre,proy:h.proyectado+' (ventana: '+fd(D(h.ventana[0]))+' – '+fd(D(h.ventana[1]))+')',crit:h.criterio,st:st,chip:'H'+(i+1)+' '+h.tipo}); });
+  var LAB={ok:'cumplido',warn:'atención',bad:'desviación',run:'en curso',pend:'pendiente'};
+  var tb=document.querySelector('#seg-tabla tbody'); if(tb){ tb.innerHTML=res.map(function(r){ return '<tr><td><b>'+esc(r.nombre)+'</b></td><td>'+r.proy+'</td><td>'+esc(r.crit)+'</td><td><span class="st '+r.st.cls+'">'+esc(r.st.txt)+'</span></td><td>'+r.st.ev+'</td></tr>'; }).join(''); }
+  var rs=document.getElementById('seg-resumen'); if(rs){
+    var nz=evs.filter(function(e){ return e.lug==='zorritos'; }).length;
+    rs.innerHTML=res.map(function(r){ return '<a class="chip '+r.st.cls+'" href="#seg-tabla"><i></i><b>'+esc(r.chip)+'</b> '+esc(r.st.txt.split(':')[0].toLowerCase())+'</a>'; }).join('')+
+      '<a class="chip" href="#cronologia"><i style="background:var(--haz-h)"></i><b>Hechos</b> '+evs.length+' desde el '+fd(S0)+', '+nz+' en Zorritos o la provincia</a>'+
+      '<span class="chip"><i style="background:var(--fg)"></i><b>Hoy</b> '+fd(today)+' · ERA5 al '+(hasta?fd(hasta):'—')+(lastw?' · mar al '+fd(lastw[0]):'')+'</span>';
+  }
+ }catch(e){ try{ console.error('seguimiento '+(e&&e.stack)); var bx=document.getElementById('seg-chart'); if(bx) bx.textContent='No se pudo dibujar el seguimiento.'; }catch(x){} }
+})();
+</script>
+<script>
+(function(){
+ try{
   var M=['ene','feb','mar','abr','may','jun','jul','ago','set','oct','nov','dic'];
   function fmt(d){ var p=d.split('-'); return parseInt(p[2],10)+' '+M[parseInt(p[1],10)-1]; }
   var hist=[]; document.querySelectorAll('#historial .h-ent[data-date]').forEach(function(e){ hist.push(e.getAttribute('data-date')); });
@@ -988,12 +1194,12 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
     else return;
     var b=document.createElement('span'); b.className='nw '+cls; b.textContent=txt;
     if(e.tagName==='LI'||e.classList.contains('stamp')){ e.insertBefore(b,e.firstChild); }
-    else { var t=e.querySelector('.d')||e.querySelector('h3')||e; t.appendChild(document.createTextNode(' ')); t.appendChild(b); }
+    else { var t=e.querySelector('.d')||e.querySelector('h2,h3')||e; t.appendChild(document.createTextNode(' ')); t.appendChild(b); }
     if(!e.id){ e.id='upd-'+(++n); }
   });
   document.querySelectorAll('#historial .h-ent[data-date]').forEach(function(e){ if(e.getAttribute('data-date')===latest) e.classList.add('is-latest'); });
   var box=document.getElementById('whatsnew'); if(!box||!cur.length) return;
-  var SEC={hero:['Alerta vigente','texto','m'],novedades:['Novedades','tarjeta','f'],tsm:['Gráfico del mar','gráfico','m'],proyeccion:['Proyección','elemento','m'],
+  var SEC={hero:['Alerta vigente','texto','m'],novedades:['Novedades','tarjeta','f'],tsm:['Gráfico del mar','gráfico','m'],proyeccion:['Proyección','elemento','m'],seguimiento:['Seguimiento','sección','f'],
            general:['Mapa general','elemento','m'],mapa:['Mapa interactivo','capa','f'],zonas:['Fichas de zona','ficha','f'],cronologia:['Cronología','entrada','f'],
            quebradas:['Tabla de quebradas','fila','f'],mar:['El mar','párrafo','m'],metodo:['Método','párrafo','m'],fuentes:['Fuentes','fuente','f']};
   var groups={}, order=[];

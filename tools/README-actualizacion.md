@@ -28,6 +28,14 @@ Un script al final de la página lee los atributos `data-upd` y pone etiquetas s
 - El `span.upd` del `h1` lleva `data-date="AAAA-MM-DD"` con la fecha de la edición; el script la usa junto con las fechas del historial para saber cuál es la edición actual.
 - El resumen "Nuevo en esta edición" de la cabecera (`div#whatsnew`) se genera solo a partir de los elementos marcados.
 
+## Seguimiento: proyección frente a realidad (sección `#seguimiento`)
+Se dibuja sola en el navegador a partir de: la franja mensual de riesgo (`.strip .cell`), el JSON `seg-proy` (ventanas de los hitos, umbrales del ENFEN para el mar), el JSON `seg-lluvia` (lo escribe `update_proyeccion.py`), el JSON `seg-tsm` (lo escribe `update_sst.py`) y las entradas `div.ev` de la temporada en curso de la cronología (la fecha se lee del `div.when`: formatos "1 set", "24–26 oct", "12 feb–7 mar"). Los estados de los hitos (pendiente, en curso, cumplido, adelantado, retrasado, no se cumplió) se calculan solos.
+- En cada `div.ev` nuevo poner `data-lugar="zorritos"` si el hecho ocurre en Zorritos o en la provincia de Contralmirante Villar, `data-lugar="tumbes"` si es en el resto de la región y `data-lugar="nacional"` si es un anuncio o pronóstico nacional. Si falta, se infiere del título.
+- El hito 1 se da por cumplido con el primer día ≥ 25 mm en ERA5 o con la primera entrada de la cronología sobre una quebrada activa en Zorritos (`data-lugar="zorritos"`, clase `q`, texto con "quebrada" y "activ…"/"desbord…"/"lodo").
+- Si el ENFEN cambia el pronóstico del mar, editar en `seg-proy` los tramos de `"mar"` (`desde`, `hasta`, `min`, `etiqueta`) y `"mar_fuente"`. Si cambia el calendario esperado de lluvias, editar las `"ventana"` de los hitos y el texto de las tarjetas de `#proyeccion`.
+- Si un reporte oficial confirma un hito antes de que lo detecten los datos, añadir al hito en `seg-proy` `"cumplido":"AAAA-MM-DD","evidencia":"texto corto con fuente"`.
+- Comprobar que el JSON sigue válido: `python3 -c "import re,json;s=open('zorritos-nino-mapa-peligro.html',encoding='utf-8').read();json.loads(re.search(r'id=\"seg-proy\">(.*?)</script>',s,re.S).group(1));print('json ok')"`.
+
 Además, en cada actualización cambiar:
 - `div.eyebrow`: "... · actualizada el <d de mes de aaaa>".
 - `span.upd` dentro del `h1`: texto "Actualizado <d mes aaaa>" y atributo `data-date`.
