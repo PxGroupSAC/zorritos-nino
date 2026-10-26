@@ -111,10 +111,21 @@ tbl=('<div class="tablewrap" style="margin-top:12px"><table style="min-width:640
      f'<tr><td>Normal 1991‑2020</td><td>—</td><td>{MESES[max(range(10),key=lambda i:clim[i])]}</td><td>—</td><td class="num">{fmt0(sum(clim))}</td></tr>'
      f'<tr class="h"><td>{cur_y0}‑{str(cur_y0+1)[2:]} (en curso, al {f(last)})</td><td>{f(next((t for t,v in daily if t>=datetime.date(cur_y0,9,1) and v>=25),None))}</td><td>—</td><td>—</td><td class="num">{fmt0(sum(v for _,v,_ in obs))}</td></tr>'
      '</tbody></table></div>')
-note=f'<p class="note" style="margin-top:8px">Lluvia del reanálisis ERA5 (ECMWF, 0,25°) en el punto de Zorritos vía Open‑Meteo; reproduce bien el calendario de cada temporada pero subestima los extremos diarios frente a las estaciones de SENAMHI. Datos hasta el {f(last)}; actualizado el {today.strftime("%d/%m/%Y")}.</p>'
-block='<!-- PROYECCION:START -->\n'+svg+'\n'+legend+'\n<h3 style="margin-top:18px">Mes a mes: qué esperar en Zorritos</h3>\n'+striphtml+'\n'+tbl+'\n'+note+'\n<!-- PROYECCION:END -->'
+note=f'<p class="note" style="margin-top:8px">Lluvia del reanálisis ERA5 (ECMWF, 0,25°) en el punto de Zorritos vía Open‑Meteo; reproduce bien el calendario de cada temporada pero subestima los extremos diarios frente a las estaciones de SENAMHI. Datos hasta el {f(last)}.</p>'
+body=svg+'\n'+legend+'\n<h3 style="margin-top:18px">Mes a mes: qué esperar en Zorritos</h3>\n'+striphtml+'\n'+tbl+'\n'+note
 s=open(PAGE,encoding='utf-8').read()
 a=s.index('<!-- PROYECCION:START -->'); b=s.index('<!-- PROYECCION:END -->')+len('<!-- PROYECCION:END -->')
+# Sello de regeneración: conserva la fecha anterior si los datos no cambiaron.
+import re
+old=s[a:b]; m=re.search(r'<p class="stamp"[^\n]*\n',old)
+old_body=old[len('<!-- PROYECCION:START -->\n'):-len('\n<!-- PROYECCION:END -->')]
+if m: old_body=old_body.replace(m.group(0),'',1)
+if m and old_body==body:
+    stamp=m.group(0).rstrip('\n')
+else:
+    hoy=datetime.date.today(); M12=['ene','feb','mar','abr','may','jun','jul','ago','set','oct','nov','dic']
+    stamp=f'<p class="stamp" data-upd="{hoy.isoformat()}" data-rev="1">Gráfico regenerado el {hoy.day} {M12[hoy.month-1]} {hoy.year} con lluvia ERA5 hasta el {last.day} {M12[last.month-1]}.</p>'
+block='<!-- PROYECCION:START -->\n'+stamp+'\n'+body+'\n<!-- PROYECCION:END -->'
 open(PAGE,'w',encoding='utf-8').write(s[:a]+block+s[b:])
 print('proyección actualizada; ERA5 hasta',last,'| temporada en curso',[(MESES[i],round(v)) for i,v,_ in obs],'| análogos', ON83, ON98)
 subprocess.run([sys.executable,os.path.join(root,'tools','build_index.py')],check=True)

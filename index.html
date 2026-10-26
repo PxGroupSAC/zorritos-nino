@@ -165,6 +165,27 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
 .hitos .callout h3{font-size:21px}
 .hitos .callout .d{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
 .upd{display:inline-block;font-family:var(--mono);font-size:12px;background:var(--haz-vh);color:#fff;padding:3px 8px;border-radius:3px;letter-spacing:.06em;vertical-align:middle;margin-left:8px}
+.nw{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;line-height:1.6;padding:1px 8px;border-radius:999px;vertical-align:middle;margin-left:8px;white-space:nowrap;font-weight:600}
+.nw.new{background:var(--haz-vh);color:#fff}
+.nw.rev{background:var(--haz-h);color:#1d1d1d}
+.nw.prev{background:transparent;color:var(--muted);border:1px solid var(--line);font-weight:500}
+li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
+.is-cur{scroll-margin-top:16px}
+.callout.is-cur{background:color-mix(in srgb,var(--haz-vh) 7%,var(--panel))}
+.ev.is-cur::before{box-shadow:0 0 0 3px color-mix(in srgb,var(--haz-vh) 35%,transparent)}
+.wn{display:none;margin-top:14px;padding:10px 14px;background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--haz-vh);font-size:15px;line-height:1.55}
+.wn.on{display:block}
+.wn .k{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--haz-vh);font-weight:600;margin-right:8px}
+.wn .sep{color:var(--muted);margin-inline:6px}
+.hist{border-top:1px solid var(--line)}
+.h-ent{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+@media (max-width:640px){.h-ent{grid-template-columns:1fr;gap:4px}}
+.h-ent .when{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:3px}
+.h-ent .when b{display:block;font-family:var(--display);font-size:26px;color:var(--fg);line-height:1;font-weight:700}
+.h-ent.is-latest .when b{color:var(--haz-vh)}
+.h-ent ul{margin:0;padding-left:18px;font-size:15.5px}
+.h-ent li{margin-bottom:3px}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:0 0 8px}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
@@ -177,10 +198,11 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
   <div class="eyebrow">Infografía de riesgo · Distrito de Zorritos, provincia de Contralmirante Villar, Tumbes · elaborada el 13 de octubre de 2026 · actualizada el 26 de octubre de 2026</div>
   <div class="hero-grid">
     <div>
-      <h1>Zorritos ante El Niño <span class="upd">Actualizado 26 oct 2026</span></h1>
+      <h1>Zorritos ante El Niño <span class="upd" data-date="2026-10-26">Actualizado 26 oct 2026</span></h1>
       <p class="lede" style="margin-top:14px">Dónde han golpeado las quebradas, las lluvias y el mar entre 1983 y 2026, y qué zonas del litoral entre Caleta La Cruz y Cancas quedan expuestas en la temporada 2026‑2027, que el ENFEN califica de magnitud extraordinaria.</p>
+      <div id="whatsnew" class="wn"></div>
     </div>
-    <div class="callout vh">
+    <div class="callout vh" data-upd="2026-10-23" data-rev="1">
       <h3>Alerta vigente</h3>
       <p>ENFEN, comunicado del 16 de octubre de 2026: El Niño costero se mantendrá con <b>magnitud extraordinaria hasta enero de 2027</b> y luego fuerte hasta inicios del otoño; en el Pacífico central el calentamiento será muy fuerte hasta febrero. <b>Desde noviembre, el río Tumbes y las quebradas tendrán caudales por encima de lo normal.</b> Próximo comunicado: 30 de octubre.</p>
       <p class="note">Gobierno (COEN, 15 oct): "Quienes viven en zonas de alto riesgo, los invoco a evacuar desde ya"; mochila y ruta de evacuación listas. Estado de emergencia por peligro inminente vigente en Zorritos, Casitas y Canoas de Punta Sal (DS 124‑2026‑PCM, 60 días desde el 1 de septiembre; vence a fines de octubre y al 23 oct no se ha publicado prórroga). SENAMHI y COEN: lluvias de fuerte a extrema intensidad del 23 al 25 de octubre, nivel rojo en Contralmirante Villar.</p>
@@ -198,7 +220,7 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
 <!-- NOVEDADES:START -->
   <div class="sec-head"><h2>Novedades al 26 de octubre de 2026</h2><p>Lo que cambió en la última semana: las lluvias ya activan quebradas en la provincia de Tumbes, nuevo aviso de lluvias fuertes para el fin de semana y otro oleaje fuerte en el litoral norte. Las cifras son las declaradas por cada fuente; donde hay versiones distintas se indican ambas.</p></div>
   <div class="news">
-    <div class="callout vh">
+    <div class="callout vh" data-upd="2026-10-26">
       <div class="d">24–26 oct · INDECI, SENAMHI y prensa</div>
       <h3>Fin de semana de lluvias: 55 viviendas afectadas en Tumbes</h3>
       <ul>
@@ -208,7 +230,7 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
         <li><b>Zorritos y Contralmirante Villar:</b> hasta el 26 de octubre no hay reportes oficiales ni de prensa de quebradas activas ni de daños por lluvia en la provincia; el peligro sigue concentrado en el mar.</li>
       </ul>
     </div>
-    <div class="callout vh">
+    <div class="callout vh" data-upd="2026-10-23">
       <div class="d">19–22 oct · INDECI, COEN y prensa</div>
       <h3>Primeras quebradas activas en Tumbes</h3>
       <ul>
@@ -219,7 +241,7 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
         <li>Hasta el 23 de octubre no se encontraron reportes de quebradas activas ni daños por lluvia en Zorritos.</li>
       </ul>
     </div>
-    <div class="callout vh">
+    <div class="callout vh" data-upd="2026-10-23">
       <div class="d">23–25 oct · SENAMHI y COEN</div>
       <h3>Aviso: lluvias fuertes este fin de semana</h3>
       <ul>
@@ -228,7 +250,7 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
         <li>Se esperan aniegos y activación de quebradas. En Zorritos, las zonas más expuestas son las viviendas en cauces (zonas 1, 3 y 4) y los cruces de la Panamericana.</li>
       </ul>
     </div>
-    <div class="callout">
+    <div class="callout" data-upd="2026-10-23" data-rev="1">
       <div class="d">13–25 oct · DHN y Zorritos</div>
       <h3>Mar: oleaje fuerte en el litoral norte</h3>
       <ul>
@@ -236,7 +258,7 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
         <li>Las playas abiertas y semiabiertas son las más expuestas. En Zorritos el avance del mar ya afecta unos 30–35 hoteles, restaurantes y hospedajes en cerca de 2 km del sector turístico y destapó el antiguo pozo petrolero de 1865 (Canal N, mediados de octubre).</li>
       </ul>
     </div>
-    <div class="callout">
+    <div class="callout" data-upd="2026-10-23" data-rev="1">
       <div class="d">15–19 oct · Gobierno</div>
       <h3>"Evacúen desde ya" y albergues por definir</h3>
       <ul>
@@ -245,7 +267,7 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
         <li>El ministro de Defensa, Rafael Belaúnde, está a cargo de Tumbes, Piura y La Libertad.</li>
       </ul>
     </div>
-    <div class="callout">
+    <div class="callout" data-upd="2026-10-23" data-rev="1">
       <div class="d">16 oct · ENFEN</div>
       <h3>Pronóstico: extraordinario hasta enero</h3>
       <ul>
@@ -254,7 +276,7 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
         <li>NOAA: más de 83 % de probabilidad de un Niño fuerte entre enero y marzo de 2027. Próximo comunicado: jueves 30 de octubre.</li>
       </ul>
     </div>
-    <div class="callout">
+    <div class="callout" data-upd="2026-10-23" data-rev="1">
       <div class="d">Ago–19 oct · Obras y presupuesto</div>
       <h3>Dónde se limpia y con qué dinero</h3>
       <ul>
@@ -263,7 +285,7 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
         <li>19 oct: el MEF transfiere S/ 191,9 millones, de ellos S/ 90,8 millones al Midagri (PSI) para limpieza y descolmatación de ríos y quebradas.</li>
       </ul>
     </div>
-    <div class="callout vh">
+    <div class="callout vh" data-upd="2026-10-23" data-rev="1">
       <div class="d">Qué implica para Zorritos</div>
       <h3>Lo que sigue pendiente</h3>
       <ul>
@@ -281,6 +303,7 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
   <div class="sec-head"><h2>El mar frente a Tumbes, mes a mes</h2><p>La presidenta mostró en el COEN un gráfico de temperatura del mar. Este es el mismo indicador que usa el ENFEN para clasificar El Niño costero, la anomalía de temperatura superficial en la región Niño 1+2 (el rectángulo oceánico frente a Tumbes y Piura, 0–10° S y 90–80° O), reconstruido con los datos públicos de NOAA y comparado con los cuatro episodios de referencia.</p></div>
   <figure>
     <!-- SST-CHART:START -->
+<p class="stamp" data-upd="2026-10-26" data-rev="1">Gráfico regenerado el 26 oct 2026 con datos de NOAA hasta la semana del 21 oct (mensual: set 2026).</p>
 <svg viewBox="0 0 960 440" width="100%" role="img" aria-labelledby="tsm-title" style="max-width:100%;height:auto;font-family:var(--body);font-size:13px">
 <title id="tsm-title">Anomalía mensual de la temperatura superficial del mar en la región Niño 1+2 para cinco episodios El Niño</title>
 <line x1="58" x2="810" y1="384.0" y2="384.0" stroke="var(--line)" stroke-width="1"/>
@@ -424,7 +447,7 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
 <text x="818.0" y="326.2" fill="var(--fg)" style="font-size:12.5px;font-weight:500"><tspan fill="#b58900">■</tspan> 2023‑24</text>
 </svg>
 <div class="legend"><span><i class="sw" style="background:#1f4e79"></i>1982‑83</span><span><i class="sw" style="background:#2a9d8f"></i>1997‑98</span><span><i class="sw" style="background:#8e5bd1"></i>2015‑16</span><span><i class="sw" style="background:#b58900"></i>2023‑24</span><span><i class="sw" style="background:#c1272d"></i>2026‑27</span><span><i class="sw ring" style="border-color:#c1272d;border-radius:0;transform:rotate(45deg);width:11px;height:11px"></i>Último dato semanal</span><span><i class="sw line" style="background:var(--haz-h)"></i>Umbrales ICEN (ENFEN)</span></div>
-<p class="note" style="margin-top:8px">Último dato mensual: set 2026, <b>+4,7 °C</b>. Última semana (21/10/2026): <b>+5,2 °C</b>. Máximos mensuales: 1982‑83 +4,0 °C (Jun 1983), 1997‑98 +3,7 °C (Dic 1997), 2023‑24 +3,3 °C (Ago 2023). Fuente: NOAA CPC, OISST v2.1, región Niño 1+2 (0–10° S, 90–80° O). Actualizado el 26/10/2026.</p>
+<p class="note" style="margin-top:8px">Último dato mensual: set 2026, <b>+4,7 °C</b>. Última semana (21/10/2026): <b>+5,2 °C</b>. Máximos mensuales: 1982‑83 +4,0 °C (Jun 1983), 1997‑98 +3,7 °C (Dic 1997), 2023‑24 +3,3 °C (Ago 2023). Fuente: NOAA CPC, OISST v2.1, región Niño 1+2 (0–10° S, 90–80° O).</p>
 <details style="margin-top:8px"><summary style="cursor:pointer;color:var(--accent)">Ver la tabla de datos</summary><div class="tablewrap" style="margin-top:8px"><table style="min-width:520px"><thead><tr><th>Mes</th><th>1982‑83</th><th>1997‑98</th><th>2015‑16</th><th>2023‑24</th><th>2026‑27</th></tr></thead><tbody><tr><td>Ene</td><td class="num">−0,2 °C</td><td class="num">−0,9 °C</td><td class="num">+0,1 °C</td><td class="num">−0,2 °C</td><td class="num">−0,3 °C</td></tr><tr><td>Feb</td><td class="num">−0,7 °C</td><td class="num">−0,5 °C</td><td class="num">−0,6 °C</td><td class="num">+0,7 °C</td><td class="num">+0,9 °C</td></tr><tr><td>Mar</td><td class="num">−1,4 °C</td><td class="num">+0,2 °C</td><td class="num">+0,1 °C</td><td class="num">+1,5 °C</td><td class="num">+1,3 °C</td></tr><tr><td>Abr</td><td class="num">−1,2 °C</td><td class="num">+0,8 °C</td><td class="num">+1,0 °C</td><td class="num">+2,5 °C</td><td class="num">+1,5 °C</td></tr><tr><td>May</td><td class="num">−0,6 °C</td><td class="num">+1,8 °C</td><td class="num">+1,3 °C</td><td class="num">+2,0 °C</td><td class="num">+1,8 °C</td></tr><tr><td>Jun</td><td class="num">−0,3 °C</td><td class="num">+2,8 °C</td><td class="num">+1,9 °C</td><td class="num">+2,6 °C</td><td class="num">+2,8 °C</td></tr><tr><td>Jul</td><td class="num">+0,2 °C</td><td class="num">+3,6 °C</td><td class="num">+2,5 °C</td><td class="num">+3,2 °C</td><td class="num">+3,6 °C</td></tr><tr><td>Ago</td><td class="num">+0,8 °C</td><td class="num">+3,7 °C</td><td class="num">+1,8 °C</td><td class="num">+3,3 °C</td><td class="num">+4,1 °C</td></tr><tr><td>Set</td><td class="num">+1,3 °C</td><td class="num">+3,6 °C</td><td class="num">+2,3 °C</td><td class="num">+2,8 °C</td><td class="num">+4,7 °C</td></tr><tr><td>Oct</td><td class="num">+1,8 °C</td><td class="num">+3,6 °C</td><td class="num">+2,2 °C</td><td class="num">+2,5 °C</td><td class="num">—</td></tr><tr><td>Nov</td><td class="num">+2,8 °C</td><td class="num">+3,7 °C</td><td class="num">+2,0 °C</td><td class="num">+2,2 °C</td><td class="num">—</td></tr><tr><td>Dic</td><td class="num">+2,9 °C</td><td class="num">+3,7 °C</td><td class="num">+2,1 °C</td><td class="num">+1,4 °C</td><td class="num">—</td></tr><tr><td>Ene'</td><td class="num">+2,3 °C</td><td class="num">+2,9 °C</td><td class="num">+1,2 °C</td><td class="num">+0,8 °C</td><td class="num">—</td></tr><tr><td>Feb'</td><td class="num">+1,6 °C</td><td class="num">+1,9 °C</td><td class="num">+1,0 °C</td><td class="num">+0,9 °C</td><td class="num">—</td></tr><tr><td>Mar'</td><td class="num">+1,7 °C</td><td class="num">+1,9 °C</td><td class="num">+1,1 °C</td><td class="num">+0,3 °C</td><td class="num">—</td></tr><tr><td>Abr'</td><td class="num">+2,4 °C</td><td class="num">+2,3 °C</td><td class="num">+0,5 °C</td><td class="num">+0,1 °C</td><td class="num">—</td></tr><tr><td>May'</td><td class="num">+3,3 °C</td><td class="num">+2,8 °C</td><td class="num">+0,4 °C</td><td class="num">−0,7 °C</td><td class="num">—</td></tr><tr><td>Jun'</td><td class="num">+4,0 °C</td><td class="num">+1,9 °C</td><td class="num">+0,4 °C</td><td class="num">−0,7 °C</td><td class="num">—</td></tr></tbody></table></div></details>
 <!-- SST-CHART:END -->
     <figcaption>El ENFEN clasifica la magnitud con el Índice Costero El Niño (ICEN), que es el promedio de tres meses de esta anomalía: cálido débil desde +0,4 °C, moderado desde +1,0 °C, fuerte desde +1,7 °C y extraordinario por encima de +3,0 °C. Las líneas de 1982‑83 y 1997‑98 son los dos Niños extraordinarios del siglo XX; 2023‑24 fue el último Niño costero fuerte. Pasa el cursor por los puntos para leer cada valor.</figcaption>
@@ -434,19 +457,19 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
 <section id="proyeccion">
   <div class="sec-head"><h2>Proyección: cuándo golpearía con fuerza</h2><p>Documento proyectivo. Cruza tres cosas: la temperatura del mar ya observada, el calendario de lluvias de los dos Niños extraordinarios anteriores en el punto de Zorritos, y los pronósticos oficiales del ENFEN y SENAMHI. No es un pronóstico meteorológico: señala ventanas probables, no fechas exactas, y se recalcula cada semana con la lluvia observada.</p></div>
   <div class="hitos">
-    <div class="callout" style="border-left-color:var(--haz-h)">
+    <div class="callout" style="border-left-color:var(--haz-h)" data-upd="2026-10-19">
       <div class="d">Hito 1 · confianza media‑alta</div>
       <h3>Inicio de las lluvias fuertes: segunda quincena de noviembre a primera de diciembre de 2026</h3>
       <p>En 1997 el primer día con más de 25 mm en Zorritos fue el 8 de noviembre y diciembre ya acumuló 350 mm; en 1982 fue el 3 de diciembre y ese mes sumó 460 mm. Hoy el mar está más caliente que en ambos años a la misma altura del calendario y las lluvias de septiembre ya batieron récords, así que el arranque difícilmente será más tardío que en 1997. ENFEN y SENAMHI coinciden: episodios de moderados a fuertes desde noviembre y ríos sobre lo normal desde ese mes.</p>
       <p class="note">Para Zorritos: primeras activaciones de Los Pozos, Tucillal y El Tiburón; vigilancia del puente Bocapán desde la primera crecida.</p>
     </div>
-    <div class="callout vh">
+    <div class="callout vh" data-upd="2026-10-19">
       <div class="d">Hito 2 · confianza alta</div>
       <h3>Pico: febrero y marzo de 2027, con enero ya crítico</h3>
       <p>Los dos análogos coinciden: febrero y marzo fueron los meses más lluviosos en 1983 (575 y 606 mm) y en 1998 (669 y 636 mm), y las peores ventanas de 30 días empezaron el 13 de febrero de 1983 y el 5 de marzo de 1998. El puente Bocapán cayó en febrero de 1998 y el río Tumbes tuvo su máximo el 13 de febrero de ese año. ENFEN mantiene magnitud extraordinaria hasta enero y fuerte después; NOAA da 83 % de probabilidad de Niño fuerte en enero‑marzo.</p>
       <p class="note">Para Zorritos: es el periodo de mayor probabilidad de que una quebrada entre al casco urbano y de corte de la Panamericana en Bocapán o en los pontones del sur.</p>
     </div>
-    <div class="callout" style="border-left-color:var(--haz-m)">
+    <div class="callout" style="border-left-color:var(--haz-m)" data-upd="2026-10-19">
       <div class="d">Hito 3 · confianza media</div>
       <h3>Final: mayo de 2027, pero 1983 avisa que puede alargarse</h3>
       <p>En 1998 las lluvias cayeron con fuerza en abril y amainaron en mayo (143 mm). En 1983 no: mayo sumó 524 mm y el día más lluvioso de toda la temporada fue el 16 de mayo. Como el ENFEN prevé que el calentamiento dure hasta el otoño de 2027, el escenario 1983 (temporada de seis meses) es tan plausible como el de 1998.</p>
@@ -455,6 +478,7 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
   </div>
   <figure style="margin-top:18px">
     <!-- PROYECCION:START -->
+<p class="stamp" data-upd="2026-10-26" data-rev="1">Gráfico regenerado el 26 oct 2026 con lluvia ERA5 hasta el 26 oct.</p>
 <svg viewBox="0 0 960 430" width="100%" role="img" aria-labelledby="proy-title" style="max-width:100%;height:auto;font-family:var(--body);font-size:13px">
 <title id="proy-title">Lluvia mensual en Zorritos durante los Niños de 1982-83 y 1997-98, climatología y temporada 2026-27 observada, con ventanas proyectadas</title>
 <rect x="276.0" y="44" width="123.2" height="340" fill="var(--haz-h)" opacity="0.16"/>
@@ -532,7 +556,7 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
 <h3 style="margin-top:18px">Mes a mes: qué esperar en Zorritos</h3>
 <div class="strip"><div class="cell l1"><b>Set</b>Lluvias aisladas récord; mar ya extraordinario</div><div class="cell l1"><b>Oct</b>Preparación: limpiar cauces y pontones; oleajes</div><div class="cell l2"><b>Nov</b>Inicio probable de lluvias fuertes y primeras quebradas activas</div><div class="cell l3"><b>Dic</b>Lluvias intensas; quebradas y puente Bocapán en riesgo</div><div class="cell l3"><b>Ene</b>Magnitud extraordinaria (ENFEN); crecidas frecuentes</div><div class="cell l4"><b>Feb</b>Pico probable: 600–700 mm/mes en los análogos</div><div class="cell l4"><b>Mar</b>Pico probable; máximos de 30 días en 1983 y 1998</div><div class="cell l3"><b>Abr</b>Sigue muy lluvioso; suelos saturados</div><div class="cell l2"><b>May</b>Cola: 1983 siguió con 500 mm; 1998 bajó</div><div class="cell l1"><b>Jun</b>Declive; vigilar mar y rehabilitación</div></div><div class="legend"><span><i class="sw" style="background:var(--haz-m)"></i>Vigilancia</span><span><i class="sw" style="background:var(--haz-h)"></i>Alto</span><span><i class="sw" style="background:var(--haz-vh)"></i>Muy alto</span><span><i class="sw" style="background:#7a1016"></i>Pico</span></div>
 <div class="tablewrap" style="margin-top:12px"><table style="min-width:640px"><thead><tr><th>Temporada</th><th>Primer día ≥ 25 mm</th><th>Mes más lluvioso</th><th>Peor ventana de 30 días</th><th class="num">Total set–jun (mm)</th></tr></thead><tbody><tr class="vh"><td>1982‑83</td><td>03/12/1982</td><td>Mar</td><td>780 mm desde el 14/02/1983</td><td class="num">3 378</td></tr><tr class="vh"><td>1997‑98</td><td>08/11/1997</td><td>Feb</td><td>796 mm desde el 05/03/1998</td><td class="num">2 943</td></tr><tr><td>Normal 1991‑2020</td><td>—</td><td>Mar</td><td>—</td><td class="num">538</td></tr><tr class="h"><td>2026‑27 (en curso, al 26/10/2026)</td><td>—</td><td>—</td><td>—</td><td class="num">83</td></tr></tbody></table></div>
-<p class="note" style="margin-top:8px">Lluvia del reanálisis ERA5 (ECMWF, 0,25°) en el punto de Zorritos vía Open‑Meteo; reproduce bien el calendario de cada temporada pero subestima los extremos diarios frente a las estaciones de SENAMHI. Datos hasta el 26/10/2026; actualizado el 26/10/2026.</p>
+<p class="note" style="margin-top:8px">Lluvia del reanálisis ERA5 (ECMWF, 0,25°) en el punto de Zorritos vía Open‑Meteo; reproduce bien el calendario de cada temporada pero subestima los extremos diarios frente a las estaciones de SENAMHI. Datos hasta el 26/10/2026.</p>
 <!-- PROYECCION:END -->
     <figcaption>Las barras rojas son la temporada en curso; las líneas, los dos Niños extraordinarios y la lluvia normal; las franjas de fondo, las ventanas proyectadas. Pasa el cursor por los puntos y las barras para leer cada valor. La franja mensual resume el nivel de riesgo esperado en Zorritos combinando lluvia, quebradas y mar.</figcaption>
   </figure>
@@ -789,16 +813,16 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
       <div class="ev m"><div class="when"><b>2026</b>29 set</div><div><h3>El mar avanza sobre 1,5–2 km de la zona hotelera</h3><p>Entre el malecón y la municipalidad; más de 20 hoteles y restaurantes afectados, edificios de hasta cuatro pisos inutilizados y defensas improvisadas arrasadas.</p><p class="src">Infobae (29 set 2026).</p></div></div>
       <div class="ev vh"><div class="when"><b>2026</b>28 set</div><div><h3>ENFEN: magnitud extraordinaria hasta enero de 2027</h3><p>Comunicado 17‑2026. SENAMHI reporta lluvias de septiembre sin precedente en Tumbes (Cañaveral 78,5 mm/24 h el 26 set; Rica Playa 38,4 mm el 23 set) y advierte que podrían repetirse los 250 mm en pocas horas de 1997‑98.</p><p class="src">ENFEN; SENAMHI; La República (28 set 2026).</p></div></div>
       <div class="ev q"><div class="when"><b>2026</b>1 oct</div><div><h3>MVCS: 24 acciones preventivas en 11,29 km de cauces</h3><p>Quebradas, drenes y canales en Casitas, Corrales, La Cruz, Pampas de Hospital, Tumbes y Zorritos; descolmatación de la quebrada Pedregal. La ANA inicia la limpieza del río Tumbes (250 660 m³).</p><p class="src">Perú Construye (1 oct 2026); ANA.</p></div></div>
-      <div class="ev m"><div class="when"><b>2026</b>13–19 oct</div><div><h3>Nuevo oleaje anómalo; 30–35 negocios afectados en Zorritos</h3><p>Alerta de la DHN del 13 de octubre para el 15–19. En unos 2 km del sector turístico el mar sigue avanzando y destapó el pozo petrolero de 1865.</p><p class="src">Infobae (15 oct 2026); Canal N.</p></div></div>
-      <div class="ev vh"><div class="when"><b>2026</b>15 oct</div><div><h3>Fujimori: "evacúen desde ya"</h3><p>Desde el COEN: 1 800 puntos de riesgo, 536 priorizados, 70 % de avance; albergues para 30 000 personas; hospitales de campaña a Tumbes; S/ 2 000 millones en 14 decretos. Defensa queda a cargo de Tumbes.</p><p class="src">RPP; La República; Infobae (15–16 oct 2026).</p></div></div>
-      <div class="ev vh"><div class="when"><b>2026</b>16 oct</div><div><h3>ENFEN: extraordinario hasta enero, fuerte hasta el otoño</h3><p>Ríos del norte, incluido el Tumbes, con caudales sobre lo normal desde noviembre. NOAA: 83 % de probabilidad de Niño fuerte en enero‑marzo.</p><p class="src">Infobae; RPP (16–17 oct 2026).</p></div></div>
-      <div class="ev a"><div class="when"><b>2026</b>19 oct</div><div><h3>S/ 191,9 millones más para limpiar ríos y quebradas</h3><p>Transferencia del MEF (S/ 90,8 millones al Midagri). El ministro Vinelli habla de un "Mega Niño" y ubica a Tumbes entre las tres regiones de mayor riesgo; 600 puntos críticos y 13 000 carpas.</p><p class="src">Infobae; Diario Correo (19 oct 2026).</p></div></div>
-      <div class="ev q"><div class="when"><b>2026</b>19 oct</div><div><h3>Lluvias dañan 19 viviendas en La Cruz</h3><p>Distrito vecino de Zorritos por el norte. Canal N reportó una cifra preliminar distinta: 14 viviendas en La Cruz y 4 en Matapalo.</p><p class="src">INDECI, citado por El Comercio; Canal N (20 oct 2026).</p></div></div>
-      <div class="ev q"><div class="when"><b>2026</b>20 oct</div><div><h3>Tres quebradas activas en Pampas de Hospital</h3><p>Peña Blanca, Chacritas e Higuerón; vías hacia zonas agrícolas afectadas y aniegos en la ciudad de Tumbes. El COEN había puesto a Contralmirante Villar, Tumbes y Zarumilla en nivel rojo por lluvias el 20 y 21.</p><p class="src">COEN; El Comercio; La República; Andina (20–21 oct 2026).</p></div></div>
-      <div class="ev m"><div class="when"><b>2026</b>20–23 oct</div><div><h3>Oleaje fuerte en el litoral norte</h3><p>Aviso especial 42‑26 de la DHN: fuerte desde la noche del 20 y de nuevo desde la noche del 22, moderado desde la tarde del 23. Algunos medios lo extienden hasta el 25.</p><p class="src">Exitosa; El Popular (20–21 oct 2026).</p></div></div>
-      <div class="ev q"><div class="when"><b>2026</b>22 oct</div><div><h3>Nuevas lluvias y aniegos en Tumbes</h3><p>Lluvia de moderada a fuerte intensidad reactiva las quebradas de Pampas de Hospital y anega sectores de la ciudad de Tumbes. Un meteorólogo reportó 70 mm en el aeropuerto (dato no oficial).</p><p class="src">Andina; Infobae (22 oct 2026).</p></div></div>
-      <div class="ev vh"><div class="when"><b>2026</b>23 oct</div><div><h3>Aviso de lluvias fuertes a extremas hasta el 25</h3><p>SENAMHI prevé hasta 40 l/m² en la costa norte, sobre todo en Tumbes. El COEN anticipa nivel rojo el viernes en Contralmirante Villar, Tumbes y Zarumilla.</p><p class="src">Andina; El Comercio; RPP (23 oct 2026).</p></div></div>
-      <div class="ev q"><div class="when"><b>2026</b>24–26 oct</div><div><h3>Lluvias del fin de semana: 55 viviendas afectadas en la ciudad de Tumbes</h3><p>INDECI reporta además 5 colegios y 3 establecimientos de salud dañados; aniegos en Puerto Pizarro, Los Jardines y Pampa Grande, y colegios en clases virtuales el lunes 26. Sin reportes de daños en Zorritos ni en el resto de Contralmirante Villar.</p><p class="src">Andina; Diario Correo (26 oct 2026); SENAMHI.</p></div></div>
+      <div class="ev m" data-upd="2026-10-19"><div class="when"><b>2026</b>13–19 oct</div><div><h3>Nuevo oleaje anómalo; 30–35 negocios afectados en Zorritos</h3><p>Alerta de la DHN del 13 de octubre para el 15–19. En unos 2 km del sector turístico el mar sigue avanzando y destapó el pozo petrolero de 1865.</p><p class="src">Infobae (15 oct 2026); Canal N.</p></div></div>
+      <div class="ev vh" data-upd="2026-10-19"><div class="when"><b>2026</b>15 oct</div><div><h3>Fujimori: "evacúen desde ya"</h3><p>Desde el COEN: 1 800 puntos de riesgo, 536 priorizados, 70 % de avance; albergues para 30 000 personas; hospitales de campaña a Tumbes; S/ 2 000 millones en 14 decretos. Defensa queda a cargo de Tumbes.</p><p class="src">RPP; La República; Infobae (15–16 oct 2026).</p></div></div>
+      <div class="ev vh" data-upd="2026-10-19"><div class="when"><b>2026</b>16 oct</div><div><h3>ENFEN: extraordinario hasta enero, fuerte hasta el otoño</h3><p>Ríos del norte, incluido el Tumbes, con caudales sobre lo normal desde noviembre. NOAA: 83 % de probabilidad de Niño fuerte en enero‑marzo.</p><p class="src">Infobae; RPP (16–17 oct 2026).</p></div></div>
+      <div class="ev a" data-upd="2026-10-19"><div class="when"><b>2026</b>19 oct</div><div><h3>S/ 191,9 millones más para limpiar ríos y quebradas</h3><p>Transferencia del MEF (S/ 90,8 millones al Midagri). El ministro Vinelli habla de un "Mega Niño" y ubica a Tumbes entre las tres regiones de mayor riesgo; 600 puntos críticos y 13 000 carpas.</p><p class="src">Infobae; Diario Correo (19 oct 2026).</p></div></div>
+      <div class="ev q" data-upd="2026-10-23"><div class="when"><b>2026</b>19 oct</div><div><h3>Lluvias dañan 19 viviendas en La Cruz</h3><p>Distrito vecino de Zorritos por el norte. Canal N reportó una cifra preliminar distinta: 14 viviendas en La Cruz y 4 en Matapalo.</p><p class="src">INDECI, citado por El Comercio; Canal N (20 oct 2026).</p></div></div>
+      <div class="ev q" data-upd="2026-10-23"><div class="when"><b>2026</b>20 oct</div><div><h3>Tres quebradas activas en Pampas de Hospital</h3><p>Peña Blanca, Chacritas e Higuerón; vías hacia zonas agrícolas afectadas y aniegos en la ciudad de Tumbes. El COEN había puesto a Contralmirante Villar, Tumbes y Zarumilla en nivel rojo por lluvias el 20 y 21.</p><p class="src">COEN; El Comercio; La República; Andina (20–21 oct 2026).</p></div></div>
+      <div class="ev m" data-upd="2026-10-23"><div class="when"><b>2026</b>20–23 oct</div><div><h3>Oleaje fuerte en el litoral norte</h3><p>Aviso especial 42‑26 de la DHN: fuerte desde la noche del 20 y de nuevo desde la noche del 22, moderado desde la tarde del 23. Algunos medios lo extienden hasta el 25.</p><p class="src">Exitosa; El Popular (20–21 oct 2026).</p></div></div>
+      <div class="ev q" data-upd="2026-10-23"><div class="when"><b>2026</b>22 oct</div><div><h3>Nuevas lluvias y aniegos en Tumbes</h3><p>Lluvia de moderada a fuerte intensidad reactiva las quebradas de Pampas de Hospital y anega sectores de la ciudad de Tumbes. Un meteorólogo reportó 70 mm en el aeropuerto (dato no oficial).</p><p class="src">Andina; Infobae (22 oct 2026).</p></div></div>
+      <div class="ev vh" data-upd="2026-10-23"><div class="when"><b>2026</b>23 oct</div><div><h3>Aviso de lluvias fuertes a extremas hasta el 25</h3><p>SENAMHI prevé hasta 40 l/m² en la costa norte, sobre todo en Tumbes. El COEN anticipa nivel rojo el viernes en Contralmirante Villar, Tumbes y Zarumilla.</p><p class="src">Andina; El Comercio; RPP (23 oct 2026).</p></div></div>
+      <div class="ev q" data-upd="2026-10-26"><div class="when"><b>2026</b>24–26 oct</div><div><h3>Lluvias del fin de semana: 55 viviendas afectadas en la ciudad de Tumbes</h3><p>INDECI reporta además 5 colegios y 3 establecimientos de salud dañados; aniegos en Puerto Pizarro, Los Jardines y Pampa Grande, y colegios en clases virtuales el lunes 26. Sin reportes de daños en Zorritos ni en el resto de Contralmirante Villar.</p><p class="src">Andina; Diario Correo (26 oct 2026); SENAMHI.</p></div></div>
       <!-- CRONOLOGIA:END -->
     </div>
     <div style="display:grid;gap:18px;align-content:start">
@@ -887,6 +911,34 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
   </div>
 </section>
 
+<section id="historial">
+  <div class="sec-head"><h2>Historial de actualizaciones</h2><p>Qué se añadió o cambió en cada edición. En toda la página, lo que entró en la última edición lleva la etiqueta <span class="nw new" style="margin-left:0">Nuevo</span> o <span class="nw rev" style="margin-left:0">Actualizado</span>, y lo de la edición anterior una etiqueta gris; el resumen de la cabecera enlaza a cada cambio. Los gráficos se regeneran solos los martes y viernes con los datos de NOAA y ERA5, y llevan la fecha de su última regeneración.</p></div>
+  <div class="hist">
+  <!-- HISTORIAL:START -->
+    <div class="h-ent" data-date="2026-10-26"><div class="when"><b>26 oct</b>2026 · lunes</div><ul>
+      <li>Novedades: tarjeta sobre las lluvias del 24 al 26 de octubre (55 viviendas afectadas en la ciudad de Tumbes; sin reportes de daños en Zorritos).</li>
+      <li>Cronología: entrada del 24–26 de octubre.</li>
+      <li>Gráficos regenerados: mar (NOAA, semana del 21 de octubre: +5,2 °C) y lluvia (ERA5 al 26 de octubre). Desde esta edición se regeneran solos los martes y viernes.</li>
+      <li>Nuevo sistema de marcado: etiquetas "Nuevo" y "Actualizado" en cada elemento, resumen de cambios en la cabecera y este historial.</li>
+    </ul></div>
+    <div class="h-ent" data-date="2026-10-23"><div class="when"><b>23 oct</b>2026 · viernes · edición automática</div><ul>
+      <li>Novedades: primeras quebradas activas en la provincia de Tumbes (19–22 de octubre) y aviso de lluvias fuertes del 23 al 25; tarjetas del mar, del Gobierno, del ENFEN y de las obras resumidas.</li>
+      <li>Cronología: seis entradas del 19 al 23 de octubre (La Cruz, Pampas de Hospital, oleaje, aniegos en Tumbes, aviso de SENAMHI).</li>
+      <li>Alerta vigente: se anota que el DS 124‑2026‑PCM vence a fines de octubre sin prórroga publicada.</li>
+    </ul></div>
+    <div class="h-ent" data-date="2026-10-19"><div class="when"><b>19 oct</b>2026 · lunes</div><ul>
+      <li>Nueva sección "Novedades" con los anuncios del Gobierno (15 de octubre), el comunicado del ENFEN (16 de octubre), las obras y el presupuesto, y el oleaje del 13 al 19.</li>
+      <li>Nuevo gráfico "El mar frente a Tumbes, mes a mes": anomalía Niño 1+2 de NOAA frente a 1982‑83, 1997‑98, 2015‑16 y 2023‑24.</li>
+      <li>Nueva sección "Proyección: cuándo golpearía con fuerza": tres hitos, gráfico de análogos de lluvia, franja mensual de riesgo y tabla.</li>
+      <li>Cronología: entradas del 13 al 19 de octubre. Se programa la actualización semanal de los viernes.</li>
+    </ul></div>
+    <div class="h-ent" data-date="2026-10-13"><div class="when"><b>13 oct</b>2026 · martes</div><ul>
+      <li>Publicación: mapa general y mapa interactivo, ocho zonas de peligro, cronología 1983–2026, tabla de quebradas, el mar, método y fuentes.</li>
+    </ul></div>
+  <!-- HISTORIAL:END -->
+  </div>
+</section>
+
 <section id="fuentes">
   <div class="sec-head"><h2>Fuentes</h2></div>
   <ol class="src-list">
@@ -908,14 +960,59 @@ kbd.pt{font-family:var(--mono);font-size:13px;background:var(--panel2);padding:2
     <li>La República (28–29 set 2026). <a href="https://larepublica.pe/sociedad/2026/09/28/senamhi-advierte-lluvias-excepcionales-en-la-costa-norte-por-fenomeno-el-nino-que-superan-niveles-de-1997-y-anticipan-temporada-intensa-1186220">SENAMHI advierte lluvias excepcionales</a>; <a href="https://larepublica.pe/sociedad/2026/09/29/el-nino-extraordinario-adelanta-las-lluvias-enfen-advierte-episodios-intensos-desde-octubre-y-mayor-frecuencia-en-verano-2159108">ENFEN advierte episodios intensos desde octubre</a>. <a href="https://enfen.imarpe.gob.pe/comunicados/">Comunicados ENFEN</a>.</li>
     <li>IGP. <a href="http://met.igp.gob.pe/clima/HTML/tumbes.html">El clima en el Perú: Tumbes</a> (acumulados 1982‑83 y 1997‑98).</li>
     <li>Datos cartográficos: <a href="https://s2maps.eu">Sentinel‑2 cloudless 2024 por EOX IT Services GmbH</a> (datos Copernicus Sentinel 2024, CC BY‑NC‑SA 4.0); <a href="https://registry.opendata.aws/terrain-tiles/">Terrain Tiles (Mapzen/AWS)</a>; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> (ODbL); Esri World Imagery (Esri, Maxar, Earthstar Geographics) en las fichas.</li>
-    <li>Actualización del 19 de octubre de 2026: <a href="https://rpp.pe/politica/gobierno/keiko-fujimori-anuncia-medidas-de-prevencion-ante-el-fenomeno-el-nino-y-reporta-un-avance-del-70-en-limpieza-de-rios-noticia-1712867">RPP, anuncio de la presidenta en el COEN (15 oct)</a>; <a href="https://larepublica.pe/politica/2026/10/16/evacuen-sus-casas-desde-ya-keiko-fujimori-pide-a-poblacion-que-vive-cerca-a-rios-que-alisten-su-mochila-ante-el-nino-1494496">La República, "Evacúen sus casas desde ya" (16 oct)</a>; <a href="https://www.infobae.com/peru/2026/10/16/fenomeno-el-nino-obliga-a-keiko-fujimori-a-repartir-regiones-entre-ministros-ante-posibles-emergencias/">Infobae, ministros por región (16 oct)</a>; <a href="https://www.infobae.com/peru/2026/10/17/el-nino-costero-se-extenderia-hasta-el-otono-de-2027-segun-el-ultimo-reporte-del-enfen/">Infobae, comunicado ENFEN (17 oct)</a>; <a href="https://www.infobae.com/peru/2026/10/15/oleajes-anomalos-volveran-a-sacudir-la-costa-peruana-hasta-el-19-de-octubre-alerta-la-marina-de-guerra/">Infobae, alerta de oleaje de la DHN (15 oct)</a>; <a href="https://canaln.pe/actualidad/zorritos-oleaje-pone-riesgo-hoteles-restaurantes-y-hospedajes-n495363">Canal N, oleaje en Zorritos y pozo petrolero</a>; <a href="https://www.infobae.com/peru/2026/10/19/gobierno-transfiere-s191-millones-953-mil-506-para-afrontar-el-nino-para-que-acciones/">Infobae, transferencia de S/ 191,9 millones (19 oct)</a>; <a href="https://diariocorreo.pe/politica/ministro-vinelli-afirma-que-peru-tendra-un-mega-nino-hoy-en-lima-hemos-tenido-la-temperatura-mas-alta-en-70-anos-noticia/">Diario Correo, Vinelli y el "Mega Niño" (19 oct)</a>; <a href="https://peruconstruye.net/2026/10/01/tumbes-mvcs-quebrada-pedregal-inundaciones-construccion/">Perú Construye, obras del MVCS en Tumbes (1 oct)</a>; <a href="https://www.gob.pe/institucion/ana/noticias/1447202-ana-de-midagri-inicia-descolmatacion-en-rio-tumbes-para-retirar-250-660-m-de-material-acumulado-durante-una-decada">ANA, descolmatación del río Tumbes</a>; <a href="https://www.cmm.org.pe/post/priorizan-10-intervenciones-en-puntos-cr%C3%ADticos-de-tumbes-ante-el-fen%C3%B3meno-el-ni%C3%B1o">10 puntos críticos priorizados en Tumbes (DU 008‑2026)</a>; <a href="https://www.infobae.com/peru/2026/08/19/el-nino-2026-2027-gobierno-autoriza-mas-de-s129-millones-para-intervenir-70-puntos-criticos-y-descolmatar-rios/">Infobae, DU 008‑2026 (19 ago)</a>; <a href="https://cdn.www.gob.pe/uploads/document/file/10623464/8597538-1-ds-n-124-2026-pcm.pdf?v=1789487504">DS 124‑2026‑PCM, estado de emergencia (1 set)</a>; <a href="https://rpp.pe/politica/gobierno/midagri-acelera-trabajos-por-fenomeno-de-el-nino-ante-adelanto-de-la-temporada-de-lluvias-noticia-1709665">RPP, Midagri adelanta cronograma; 77 mm en Casitas</a>.</li>
-    <li>Actualización del 23 de octubre de 2026: <a href="https://elcomercio.pe/peru/tumbes/fenomeno-el-nino-lluvias-activan-quebradas-y-afectan-vias-de-acceso-en-tumbes-ultimas-noticia/">El Comercio, lluvias activan quebradas en Tumbes (20 oct)</a>; <a href="https://larepublica.pe/sociedad/2026/10/20/lluvias-en-el-norte-por-el-nino-tres-quebradas-se-activan-y-dejan-vias-afectadas-en-tumbes-744300">La República, tres quebradas activas (20 oct)</a>; <a href="https://canaln.pe/actualidad/tumbes-lluvias-dejan-19-viviendas-afectadas-y-calles-anegadas-region-n495788">Canal N, viviendas afectadas en La Cruz y Matapalo</a>; <a href="https://andina.pe/agencia/noticia-fenomeno-nino-lluvias-activan-quebradas-y-afectan-vias-acceso-la-region-tumbes-1096625.aspx">Andina, quebradas y vías (20 oct)</a>; <a href="https://andina.pe/agencia/noticia-fenomeno-nino-lluvia-moderada-intensidad-tumbes-causa-aniegos-y-activa-quebradas-1096938.aspx">Andina, aniegos y quebradas (22 oct)</a>; <a href="https://www.infobae.com/peru/2026/10/22/fuertes-lluvias-por-el-nino-ya-sacuden-la-frontera-entre-peru-y-ecuador-aniegos-rios-desbordados-y-tormenta/">Infobae, lluvias en la frontera (22 oct)</a>; <a href="https://andina.pe/agencia/noticia-tumbes-soportara-lluvias-fuerte-intensidad-hasta-40-litros-m%C2%B2-desde-hoy-viernes-1096992.aspx">Andina, aviso de lluvias y nivel rojo del COEN (23 oct)</a>; <a href="https://rpp.pe/peru/actualidad/senamhi-advierte-lluvias-de-mayor-intensidad-en-la-costa-norte-entre-el-24-y-el-26-de-octubre-noticia-1714015">RPP, lluvias de mayor intensidad del 24 al 26</a>; <a href="https://dsn.pe/lluvias-intensas-en-peru-piura-y-tumbes-en-alerta-roja-mientras-otras-regiones-esperan-fuertes-precipitaciones/">DSN, aviso del COEN del 20–21 oct</a>; <a href="https://www.exitosanoticias.pe/actualidad/marina-guerra-oleajes-anomalos-fuerte-intensidad-impactaran-litoral-norte-martes-20-octubre-n186345">Exitosa, aviso de oleaje 42‑26 de la DHN</a>; <a href="https://elperuano.pe/noticia/307076-la-proxima-semana-se-conocera-la-ubicacion-de-los-albergues-para-damnificados-de-el-nino">El Peruano, ubicación de albergues (19 oct)</a>.</li>
-    <li>Actualización del 26 de octubre de 2026: <a href="https://andina.pe/agencia/noticia-fenomeno-nino-lluvias-intensas-la-ciudad-tumbes-dejan-55-viviendas-afectadas-1097368.aspx">Andina, 55 viviendas afectadas en Tumbes (26 oct)</a>; <a href="https://diariocorreo.pe/edicion/tumbes/tumbes-lluvias-provocan-grandes-aniegos-y-cinco-colegios-pasan-a-clases-virtuales-noticia/">Diario Correo, aniegos y colegios en clases virtuales (26 oct)</a>; <a href="https://portal.indeci.gob.pe/emergencias/reporte-preliminar-n-1083-20-10-2026-coen-indeci-2250-horas-lluvias-intensas-en-el-distrito-de-pampas-de-hospital-tumbes/">COEN‑INDECI, reporte complementario 14667 sobre Pampas de Hospital (21 oct)</a>.</li>
+    <li data-upd="2026-10-19">Actualización del 19 de octubre de 2026: <a href="https://rpp.pe/politica/gobierno/keiko-fujimori-anuncia-medidas-de-prevencion-ante-el-fenomeno-el-nino-y-reporta-un-avance-del-70-en-limpieza-de-rios-noticia-1712867">RPP, anuncio de la presidenta en el COEN (15 oct)</a>; <a href="https://larepublica.pe/politica/2026/10/16/evacuen-sus-casas-desde-ya-keiko-fujimori-pide-a-poblacion-que-vive-cerca-a-rios-que-alisten-su-mochila-ante-el-nino-1494496">La República, "Evacúen sus casas desde ya" (16 oct)</a>; <a href="https://www.infobae.com/peru/2026/10/16/fenomeno-el-nino-obliga-a-keiko-fujimori-a-repartir-regiones-entre-ministros-ante-posibles-emergencias/">Infobae, ministros por región (16 oct)</a>; <a href="https://www.infobae.com/peru/2026/10/17/el-nino-costero-se-extenderia-hasta-el-otono-de-2027-segun-el-ultimo-reporte-del-enfen/">Infobae, comunicado ENFEN (17 oct)</a>; <a href="https://www.infobae.com/peru/2026/10/15/oleajes-anomalos-volveran-a-sacudir-la-costa-peruana-hasta-el-19-de-octubre-alerta-la-marina-de-guerra/">Infobae, alerta de oleaje de la DHN (15 oct)</a>; <a href="https://canaln.pe/actualidad/zorritos-oleaje-pone-riesgo-hoteles-restaurantes-y-hospedajes-n495363">Canal N, oleaje en Zorritos y pozo petrolero</a>; <a href="https://www.infobae.com/peru/2026/10/19/gobierno-transfiere-s191-millones-953-mil-506-para-afrontar-el-nino-para-que-acciones/">Infobae, transferencia de S/ 191,9 millones (19 oct)</a>; <a href="https://diariocorreo.pe/politica/ministro-vinelli-afirma-que-peru-tendra-un-mega-nino-hoy-en-lima-hemos-tenido-la-temperatura-mas-alta-en-70-anos-noticia/">Diario Correo, Vinelli y el "Mega Niño" (19 oct)</a>; <a href="https://peruconstruye.net/2026/10/01/tumbes-mvcs-quebrada-pedregal-inundaciones-construccion/">Perú Construye, obras del MVCS en Tumbes (1 oct)</a>; <a href="https://www.gob.pe/institucion/ana/noticias/1447202-ana-de-midagri-inicia-descolmatacion-en-rio-tumbes-para-retirar-250-660-m-de-material-acumulado-durante-una-decada">ANA, descolmatación del río Tumbes</a>; <a href="https://www.cmm.org.pe/post/priorizan-10-intervenciones-en-puntos-cr%C3%ADticos-de-tumbes-ante-el-fen%C3%B3meno-el-ni%C3%B1o">10 puntos críticos priorizados en Tumbes (DU 008‑2026)</a>; <a href="https://www.infobae.com/peru/2026/08/19/el-nino-2026-2027-gobierno-autoriza-mas-de-s129-millones-para-intervenir-70-puntos-criticos-y-descolmatar-rios/">Infobae, DU 008‑2026 (19 ago)</a>; <a href="https://cdn.www.gob.pe/uploads/document/file/10623464/8597538-1-ds-n-124-2026-pcm.pdf?v=1789487504">DS 124‑2026‑PCM, estado de emergencia (1 set)</a>; <a href="https://rpp.pe/politica/gobierno/midagri-acelera-trabajos-por-fenomeno-de-el-nino-ante-adelanto-de-la-temporada-de-lluvias-noticia-1709665">RPP, Midagri adelanta cronograma; 77 mm en Casitas</a>.</li>
+    <li data-upd="2026-10-23">Actualización del 23 de octubre de 2026: <a href="https://elcomercio.pe/peru/tumbes/fenomeno-el-nino-lluvias-activan-quebradas-y-afectan-vias-de-acceso-en-tumbes-ultimas-noticia/">El Comercio, lluvias activan quebradas en Tumbes (20 oct)</a>; <a href="https://larepublica.pe/sociedad/2026/10/20/lluvias-en-el-norte-por-el-nino-tres-quebradas-se-activan-y-dejan-vias-afectadas-en-tumbes-744300">La República, tres quebradas activas (20 oct)</a>; <a href="https://canaln.pe/actualidad/tumbes-lluvias-dejan-19-viviendas-afectadas-y-calles-anegadas-region-n495788">Canal N, viviendas afectadas en La Cruz y Matapalo</a>; <a href="https://andina.pe/agencia/noticia-fenomeno-nino-lluvias-activan-quebradas-y-afectan-vias-acceso-la-region-tumbes-1096625.aspx">Andina, quebradas y vías (20 oct)</a>; <a href="https://andina.pe/agencia/noticia-fenomeno-nino-lluvia-moderada-intensidad-tumbes-causa-aniegos-y-activa-quebradas-1096938.aspx">Andina, aniegos y quebradas (22 oct)</a>; <a href="https://www.infobae.com/peru/2026/10/22/fuertes-lluvias-por-el-nino-ya-sacuden-la-frontera-entre-peru-y-ecuador-aniegos-rios-desbordados-y-tormenta/">Infobae, lluvias en la frontera (22 oct)</a>; <a href="https://andina.pe/agencia/noticia-tumbes-soportara-lluvias-fuerte-intensidad-hasta-40-litros-m%C2%B2-desde-hoy-viernes-1096992.aspx">Andina, aviso de lluvias y nivel rojo del COEN (23 oct)</a>; <a href="https://rpp.pe/peru/actualidad/senamhi-advierte-lluvias-de-mayor-intensidad-en-la-costa-norte-entre-el-24-y-el-26-de-octubre-noticia-1714015">RPP, lluvias de mayor intensidad del 24 al 26</a>; <a href="https://dsn.pe/lluvias-intensas-en-peru-piura-y-tumbes-en-alerta-roja-mientras-otras-regiones-esperan-fuertes-precipitaciones/">DSN, aviso del COEN del 20–21 oct</a>; <a href="https://www.exitosanoticias.pe/actualidad/marina-guerra-oleajes-anomalos-fuerte-intensidad-impactaran-litoral-norte-martes-20-octubre-n186345">Exitosa, aviso de oleaje 42‑26 de la DHN</a>; <a href="https://elperuano.pe/noticia/307076-la-proxima-semana-se-conocera-la-ubicacion-de-los-albergues-para-damnificados-de-el-nino">El Peruano, ubicación de albergues (19 oct)</a>.</li>
+    <li data-upd="2026-10-26">Actualización del 26 de octubre de 2026: <a href="https://andina.pe/agencia/noticia-fenomeno-nino-lluvias-intensas-la-ciudad-tumbes-dejan-55-viviendas-afectadas-1097368.aspx">Andina, 55 viviendas afectadas en Tumbes (26 oct)</a>; <a href="https://diariocorreo.pe/edicion/tumbes/tumbes-lluvias-provocan-grandes-aniegos-y-cinco-colegios-pasan-a-clases-virtuales-noticia/">Diario Correo, aniegos y colegios en clases virtuales (26 oct)</a>; <a href="https://portal.indeci.gob.pe/emergencias/reporte-preliminar-n-1083-20-10-2026-coen-indeci-2250-horas-lluvias-intensas-en-el-distrito-de-pampas-de-hospital-tumbes/">COEN‑INDECI, reporte complementario 14667 sobre Pampas de Hospital (21 oct)</a>.</li>
   <!-- FUENTES:END -->
   </ol>
 </section>
 </div>
 
+<script>
+(function(){
+ try{
+  var M=['ene','feb','mar','abr','may','jun','jul','ago','set','oct','nov','dic'];
+  function fmt(d){ var p=d.split('-'); return parseInt(p[2],10)+' '+M[parseInt(p[1],10)-1]; }
+  var hist=[]; document.querySelectorAll('#historial .h-ent[data-date]').forEach(function(e){ hist.push(e.getAttribute('data-date')); });
+  hist.sort().reverse();
+  var u=document.querySelector('h1 .upd'); var ud=u&&u.getAttribute('data-date');
+  var latest=hist[0]||ud||''; if(ud&&ud>latest) latest=ud;
+  if(!latest) return;
+  var prev=''; for(var i=0;i<hist.length;i++){ if(hist[i]<latest){ prev=hist[i]; break; } }
+  var cur=[], n=0;
+  document.querySelectorAll('[data-upd]').forEach(function(e){
+    var d=e.getAttribute('data-upd'); if(!d) return;
+    var rev=e.hasAttribute('data-rev'), cls, txt;
+    if(d>=latest){ cls=rev?'rev':'new'; txt=(rev?'Actualizado':'Nuevo')+' · '+fmt(d); e.classList.add('is-cur'); cur.push(e); }
+    else if(prev&&d>=prev){ cls='prev'; txt=(rev?'Revisado':'Añadido')+' '+fmt(d); }
+    else return;
+    var b=document.createElement('span'); b.className='nw '+cls; b.textContent=txt;
+    if(e.tagName==='LI'||e.classList.contains('stamp')){ e.insertBefore(b,e.firstChild); }
+    else { var t=e.querySelector('.d')||e.querySelector('h3')||e; t.appendChild(document.createTextNode(' ')); t.appendChild(b); }
+    if(!e.id){ e.id='upd-'+(++n); }
+  });
+  document.querySelectorAll('#historial .h-ent[data-date]').forEach(function(e){ if(e.getAttribute('data-date')===latest) e.classList.add('is-latest'); });
+  var box=document.getElementById('whatsnew'); if(!box||!cur.length) return;
+  var SEC={hero:['Alerta vigente','texto','m'],novedades:['Novedades','tarjeta','f'],tsm:['Gráfico del mar','gráfico','m'],proyeccion:['Proyección','elemento','m'],
+           general:['Mapa general','elemento','m'],mapa:['Mapa interactivo','capa','f'],zonas:['Fichas de zona','ficha','f'],cronologia:['Cronología','entrada','f'],
+           quebradas:['Tabla de quebradas','fila','f'],mar:['El mar','párrafo','m'],metodo:['Método','párrafo','m'],fuentes:['Fuentes','fuente','f']};
+  var groups={}, order=[];
+  cur.forEach(function(e){ var sc=e.closest('section,header'); var id=sc?(sc.id||'hero'):'otros';
+    if(!groups[id]){ groups[id]={nw:0,rv:0,first:e}; order.push(id); } if(e.hasAttribute('data-rev')) groups[id].rv++; else groups[id].nw++; });
+  function w(k,noun,g,kind){ var adj=kind==='new'?(g==='f'?'nueva':'nuevo'):(g==='f'?'actualizada':'actualizado'); if(k!==1){ noun+='s'; adj+='s'; } return k+' '+noun+' '+adj; }
+  var parts=[];
+  order.forEach(function(id){ var g=groups[id], d=SEC[id]||['Otros','elemento','m'], txt;
+    if(g.nw===0&&g.rv===1&&(id==='tsm'||id==='proyeccion'||id==='hero')) txt=d[0]+': '+(id==='proyeccion'?'actualizada':'actualizado');
+    else { var p=[]; if(g.nw) p.push(w(g.nw,d[1],d[2],'new')); if(g.rv) p.push(w(g.rv,d[1],d[2],'rev')); txt=d[0]+': '+p.join(', '); }
+    var a=document.createElement('a'); a.href='#'+g.first.id; a.textContent=txt; parts.push(a); });
+  var k=document.createElement('span'); k.className='k'; k.textContent='Nuevo en esta edición · '+fmt(latest); box.appendChild(k);
+  parts.forEach(function(a,i){ if(i){ var sp=document.createElement('span'); sp.className='sep'; sp.textContent='·'; box.appendChild(sp); } box.appendChild(a); });
+  var sp=document.createElement('span'); sp.className='sep'; sp.textContent='·'; box.appendChild(sp);
+  var h=document.createElement('a'); h.href='#historial'; h.textContent='Historial de ediciones'; box.appendChild(h);
+  box.classList.add('on');
+ }catch(e){ try{ console.error('marcado '+(e&&e.stack)); }catch(x){} }
+})();
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 window.addEventListener('error',function(e){ try{ console.error('uncaught: '+(e.error&&e.error.stack)); }catch(x){} });

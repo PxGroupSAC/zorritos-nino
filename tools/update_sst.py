@@ -90,10 +90,21 @@ table='<details style="margin-top:8px"><summary style="cursor:pointer;color:var(
 lm=f'{MES[lastm[1]-1].lower()} {lastm[0]}'
 note=(f'<p class="note" style="margin-top:8px">Último dato mensual: {lm}, <b>{fmt(mon[lastm])} °C</b>. Última semana ({lastw[0].strftime("%d/%m/%Y")}): <b>{fmt(lastw[1])} °C</b>. '
       f'Máximos mensuales: 1982‑83 {fmt(peaks[1982][0])} °C ({peaks[1982][1]}), 1997‑98 {fmt(peaks[1997][0])} °C ({peaks[1997][1]}), 2023‑24 {fmt(peaks[2023][0])} °C ({peaks[2023][1]}). '
-      f'Fuente: NOAA CPC, OISST v2.1, región Niño 1+2 (0–10° S, 90–80° O). Actualizado el {datetime.date.today().strftime("%d/%m/%Y")}.</p>')
-block='<!-- SST-CHART:START -->\n'+svg+'\n'+legend+'\n'+note+'\n'+table+'\n<!-- SST-CHART:END -->'
+      f'Fuente: NOAA CPC, OISST v2.1, región Niño 1+2 (0–10° S, 90–80° O).</p>')
+body=svg+'\n'+legend+'\n'+note+'\n'+table
 s=open(PAGE,encoding='utf-8').read()
 a=s.index('<!-- SST-CHART:START -->'); b=s.index('<!-- SST-CHART:END -->')+len('<!-- SST-CHART:END -->')
+# Sello de regeneración: conserva la fecha anterior si los datos no cambiaron (así el workflow no hace commits vacíos).
+old=s[a:b]; m=re.search(r'<p class="stamp"[^\n]*\n',old)
+old_body=old[len('<!-- SST-CHART:START -->\n'):-len('\n<!-- SST-CHART:END -->')]
+if m: old_body=old_body.replace(m.group(0),'',1)
+if m and old_body==body:
+    stamp=m.group(0).rstrip('\n')
+else:
+    hoy=datetime.date.today()
+    stamp=(f'<p class="stamp" data-upd="{hoy.isoformat()}" data-rev="1">Gráfico regenerado el {hoy.day} {MES[hoy.month-1].lower()} {hoy.year} '
+           f'con datos de NOAA hasta la semana del {lastw[0].day} {MES[lastw[0].month-1].lower()} (mensual: {lm}).</p>')
+block='<!-- SST-CHART:START -->\n'+stamp+'\n'+body+'\n<!-- SST-CHART:END -->'
 s=s[:a]+block+s[b:]
 open(PAGE,'w',encoding='utf-8').write(s)
 print('gráfico TSM actualizado:', lm, fmt(mon[lastm]), '| semana', lastw[0], fmt(lastw[1]), '| picos', {k:(round(v[0],2),v[1]) for k,v in peaks.items()})
