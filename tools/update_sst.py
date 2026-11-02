@@ -52,7 +52,7 @@ g.append('<title id="tsm-title">Anomalía mensual de la temperatura superficial 
 for v in range(int(ymin),int(ymax)+1):
     g.append(f'<line x1="{L}" x2="{L+pw}" y1="{Y(v):.1f}" y2="{Y(v):.1f}" stroke="var(--line)" stroke-width="{2 if v==0 else 1}"/>')
     g.append(f'<text x="{L-8}" y="{Y(v)+4:.1f}" text-anchor="end" fill="var(--muted)" style="font-family:var(--mono);font-size:12px">{fmt(v) if v!=0 else "0"}</text>')
-for v,lab in [(0.4,'débil'),(1.0,'moderado'),(1.7,'fuerte'),(3.0,'extraordinario')]:
+for v,lab in [(0.5,'débil'),(1.3,'moderado'),(2.1,'fuerte'),(3.5,'extraordinario')]:  # ICEN, nota técnica ENFEN 01-2024
     g.append(f'<line x1="{L}" x2="{L+pw}" y1="{Y(v):.1f}" y2="{Y(v):.1f}" stroke="var(--haz-h)" stroke-width="1" stroke-dasharray="4 4" opacity=".7"/>')
     g.append(f'<text x="{L+4}" y="{Y(v)-4:.1f}" fill="var(--haz-h)" style="font-size:11px;letter-spacing:.04em">{lab} ≥ {fmt(v)} °C</text>')
 for k in range(18):
