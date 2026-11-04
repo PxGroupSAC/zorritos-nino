@@ -1,0 +1,21 @@
+name: Prueba de acceso a SENAMHI desde GitHub
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          set +e
+          for u in \
+            'https://idesep.senamhi.gob.pe/geoserver/silvia/ows?service=WFS&version=1.0.0&request=GetCapabilities' \
+            'http://idesep.senamhi.gob.pe/geoserver/silvia/ows?service=WFS&version=1.0.0&request=GetCapabilities' \
+            'https://www.senamhi.gob.pe/?p=silvia' \
+            'https://www.senamhi.gob.pe/usr/dgh/SILVIA/peligros_mm.zip' \
+            'https://www.senamhi.gob.pe/usr/dgh/SILVIA/lluvia_7d.png' \
+            'https://r.jina.ai/https://idesep.senamhi.gob.pe/geoserver/silvia/ows?service=WFS&version=1.0.0&request=GetCapabilities' \
+            'https://api.allorigins.win/raw?url=https%3A%2F%2Fidesep.senamhi.gob.pe%2Fgeoserver%2Fsilvia%2Fows%3Fservice%3DWFS%26version%3D1.0.0%26request%3DGetCapabilities' ; do
+            printf '%s -> ' "$u"
+            curl -sS -m 40 -A 'Mozilla/5.0' -o /tmp/out -w '%{http_code} %{size_download} bytes %{time_total}s\n' "$u" || echo "fallo curl $?"
+          done
+          curl -s -m 10 https://ifconfig.me; echo
