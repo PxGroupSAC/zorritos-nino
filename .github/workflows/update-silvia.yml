@@ -1,7 +1,8 @@
 name: Actualizar semáforo SILVIA (SENAMHI)
+# SENAMHI (idesep.senamhi.gob.pe y www.senamhi.gob.pe) no responde a los servidores de GitHub ni a proxies
+# en la nube (comprobado el 4 nov 2026: todas las conexiones expiran). Por eso la actualización diaria corre en la
+# Mac de Felipe con launchd (tools/silvia_local.sh). Este workflow queda solo para lanzarlo a mano por si cambia.
 on:
-  schedule:
-    - cron: '30 19 * * *'
   workflow_dispatch:
 permissions:
   contents: write

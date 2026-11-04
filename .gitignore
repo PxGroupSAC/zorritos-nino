@@ -1,2 +1,4 @@
 .claude/
 .DS_Store
+.silvia-local.log
+.silvia-launchd.log
