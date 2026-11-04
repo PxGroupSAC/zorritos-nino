@@ -8,6 +8,9 @@ on:
 
 permissions:
   contents: write
+concurrency:
+  group: pages-update
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -26,4 +29,5 @@ jobs:
           if git diff --quiet; then echo "Sin cambios"; exit 0; fi
           git add zorritos-nino-mapa-peligro.html index.html
           git commit -m "Gráficos actualizados con datos de NOAA y ERA5 ($(date -u +%Y-%m-%d))"
+          git pull --rebase origin main
           git push

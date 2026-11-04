@@ -196,6 +196,15 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
 .st{font-weight:600}
 .st.ok{color:var(--good)} .st.warn{color:var(--haz-h)} .st.bad{color:var(--haz-vh)} .st.run{color:var(--sea)} .st.pend{color:var(--muted)}
 #seg-tabla td{font-size:14px}
+.sem{display:grid;grid-template-columns:170px repeat(4,1fr);gap:6px;margin-bottom:10px}
+.sem-wrap{overflow-x:auto}
+@media (max-width:640px){.sem{grid-template-columns:96px repeat(4,1fr);font-size:13px;min-width:480px}}
+.sem-h{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:4px 6px;line-height:1.3}
+.sem-h b{display:block;color:var(--fg)}
+.sem-r{font-weight:600;padding:8px 6px;display:flex;align-items:center;line-height:1.2}
+.sem-c{padding:10px 6px;border-radius:4px;text-align:center;font-weight:600;font-size:14px}
+.sv1{background:var(--panel2);color:var(--muted)} .sv2{background:var(--haz-m);color:#1d1d1d} .sv3{background:var(--haz-h);color:#1d1d1d} .sv4{background:var(--haz-vh);color:#fff}
+.sem-av{font-size:15px;margin:0 0 6px}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
@@ -205,10 +214,10 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
 
 <div class="wrap">
 <header class="hero">
-  <div class="eyebrow">Infografía de riesgo · Distrito de Zorritos, provincia de Contralmirante Villar, Tumbes · elaborada el 13 de octubre de 2026 · actualizada el 2 de noviembre de 2026</div>
+  <div class="eyebrow">Infografía de riesgo · Distrito de Zorritos, provincia de Contralmirante Villar, Tumbes · elaborada el 13 de octubre de 2026 · actualizada el 4 de noviembre de 2026</div>
   <div class="hero-grid">
     <div>
-      <h1>Zorritos ante El Niño <span class="upd" data-date="2026-11-02">Actualizado 2 nov 2026</span></h1>
+      <h1>Zorritos ante El Niño <span class="upd" data-date="2026-11-04">Actualizado 4 nov 2026</span></h1>
       <p class="lede" style="margin-top:14px">Dónde han golpeado las quebradas, las lluvias y el mar entre 1983 y 2026, y qué zonas del litoral entre Caleta La Cruz y Cancas quedan expuestas en la temporada 2026‑2027, que el ENFEN califica de magnitud extraordinaria.</p>
       <div id="whatsnew" class="wn"></div>
     </div>
@@ -300,6 +309,17 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
     </div>
   </div>
 <!-- NOVEDADES:END -->
+</section>
+
+<section id="silvia">
+  <div class="sec-head" data-upd="2026-11-04"><h2>Semáforo de quebradas de SENAMHI</h2><p>SILVIA es el sistema con el que SENAMHI estima cada día, cuenca por cuenca, la posibilidad de que se activen quebradas: cruza la lluvia de los siete días previos, el pronóstico a 72 horas y la susceptibilidad del terreno. Aquí se muestra el nivel más alto entre las cuencas que tocan cada distrito de Contralmirante Villar, para el día observado y los tres siguientes. Se actualiza solo cada tarde y su historial alimenta la sección de seguimiento.</p></div>
+  <div id="silvia-box" class="sem-wrap"></div>
+  <div class="legend"><span><i class="sw" style="background:var(--panel2)"></i>Normal: sin aviso</span><span><i class="sw" style="background:var(--haz-m)"></i>Amarillo: activación de severidad moderada</span><span><i class="sw" style="background:var(--haz-h)"></i>Naranja: severidad fuerte, en zonas inestables</span><span><i class="sw" style="background:var(--haz-vh)"></i>Rojo: severidad extrema, en zonas inestables</span></div>
+  <!-- SILVIA:START -->
+<p class="stamp" data-upd="2026-11-04" data-rev="1">Semáforo actualizado el 4 nov 2026 con los datos de SENAMHI del 3 nov (observado) y pronóstico hasta el 6 nov; aviso SILVIA vigente N° 307-2026, nivel rojo.</p>
+<script type="application/json" id="silvia-data">{"fuente":"SENAMHI, SILVIA (servicio WFS de IDESEP, cuencas de nivel 12)","actualizado":"2026-11-04","obs":{"fecha":"2026-11-03","zorritos":3,"casitas":2,"canoas":1,"provincia":3,"aviso":"307-2026 rojo"},"prono":[{"fecha":"2026-11-04","zorritos":4,"casitas":3,"canoas":3,"provincia":4},{"fecha":"2026-11-05","zorritos":4,"casitas":3,"canoas":3,"provincia":4},{"fecha":"2026-11-06","zorritos":4,"casitas":3,"canoas":3,"provincia":4}],"cuencas":{"zorritos":9,"casitas":12,"canoas":8},"aviso":{"numero":"307-2026","nivel":"rojo","nivel_num":4,"inicio":"Martes,  3 de noviembre de 2026 13:00","duracion":"24 hrs","departamentos":["ANCASH","CAJAMARCA","HUANUCO","JUNIN","LA LIBERTAD","LAMBAYEQUE","LIMA","LORETO","PASCO","PIURA","SAN MARTIN","TUMBES","UCAYALI"]},"historial":[{"fecha":"2026-11-03","zorritos":3,"casitas":2,"canoas":1,"provincia":3,"aviso":"307-2026 rojo"}]}</script>
+<!-- SILVIA:END -->
+  <p class="note">Las cuencas de SILVIA miden decenas o cientos de km² y no cubren la franja de playa, así que este semáforo dice "en esta zona pueden activarse quebradas", no cuál. Una cuenca cuenta para un distrito si al menos una décima parte de su contorno cae dentro de él. Fuente: SENAMHI, Sistema de Monitoreo de Movimientos en Masa por Lluvias Intensas (SILVIA), capas de cuencas de nivel 12 en el servicio de datos IDESEP; aviso vigente tomado de la página de SILVIA.</p>
 </section>
 
 <section id="tsm">
@@ -952,6 +972,10 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
   <div class="sec-head"><h2>Historial de actualizaciones</h2><p>Qué se añadió o cambió en cada edición. En toda la página, lo que entró en la última edición lleva la etiqueta <span class="nw new" style="margin-left:0">Nuevo</span> o <span class="nw rev" style="margin-left:0">Actualizado</span>, y lo de la edición anterior una etiqueta gris; el resumen de la cabecera enlaza a cada cambio. Los gráficos se regeneran solos los martes y viernes con los datos de NOAA y ERA5, y llevan la fecha de su última regeneración.</p></div>
   <div class="hist">
   <!-- HISTORIAL:START -->
+    <div class="h-ent" data-date="2026-11-04"><div class="when"><b>4 nov</b>2026 · miércoles · edición manual</div><ul>
+      <li>Nueva sección "Semáforo de quebradas de SENAMHI": nivel diario de SILVIA (observado y tres días de pronóstico) para Zorritos, Casitas y Canoas de Punta Sal, con el aviso vigente. Se descarga sola cada tarde desde el servicio de datos de SENAMHI.</li>
+      <li>Seguimiento: fila nueva con el semáforo diario, para comparar los avisos oficiales con lo proyectado y con lo que pasa.</li>
+    </ul></div>
     <div class="h-ent" data-date="2026-11-02"><div class="when"><b>2 nov</b>2026 · lunes · edición manual</div><ul>
       <li>Comunicado 19‑2026 del ENFEN verificado en el PDF: el tramo extraordinario se alarga a febrero de 2027 y por primera vez se prevén lluvias sobre lo normal también en la costa central. Alerta vigente y tarjeta del ENFEN reescritas.</li>
       <li>Umbrales del ICEN corregidos a la definición operacional vigente del ENFEN (nota técnica 01‑2024): débil desde +0,5 °C, moderado desde +1,3, fuerte desde +2,1 y extraordinario desde +3,5. Cambian las líneas del gráfico del mar y los umbrales del seguimiento.</li>
@@ -1023,6 +1047,27 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
 <script>
 (function(){
  try{
+  var box=document.getElementById('silvia-box'), e=document.getElementById('silvia-data'); if(!box||!e) return;
+  var SV=JSON.parse(e.textContent||'{}'); if(!SV.obs){ box.innerHTML='<p class="note">Todavía no hay datos del semáforo.</p>'; return; }
+  var MN=['ene','feb','mar','abr','may','jun','jul','ago','set','oct','nov','dic'];
+  function D(s){ var p=s.split('-'); return new Date(+p[0],+p[1]-1,+p[2]); } function fd(d){ return d.getDate()+' '+MN[d.getMonth()]; }
+  function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  var SN={1:'Normal',2:'Amarillo',3:'Naranja',4:'Rojo'}, SD={1:'Sin aviso de activación de quebradas',2:'Posible activación de severidad moderada',3:'Posible activación de severidad fuerte, en zonas inestables',4:'Posible activación de severidad extrema, en zonas inestables'};
+  var days=[{lab:'Observado',v:SV.obs}].concat((SV.prono||[]).map(function(p,i){ return {lab:'Pronóstico +'+(i+1),v:p}; }));
+  var rows=[['Zorritos','zorritos'],['Casitas','casitas'],['Canoas de Punta Sal','canoas'],['Provincia (máximo)','provincia']];
+  var h='<div class="sem"><div class="sem-h"></div>'+days.map(function(d){ return '<div class="sem-h"><b>'+esc(d.lab)+'</b>'+fd(D(d.v.fecha))+'</div>'; }).join('');
+  rows.forEach(function(r){ h+='<div class="sem-r">'+r[0]+'</div>'+days.map(function(d){ var lv=d.v[r[1]]||1; return '<div class="sem-c sv'+lv+'" title="'+SD[lv]+'">'+SN[lv]+'</div>'; }).join(''); });
+  h+='</div>';
+  var av=SV.aviso;
+  if(av&&av.numero){ var deps=av.departamentos||[]; h+='<p class="sem-av">Aviso SILVIA vigente: <b>N° '+esc(av.numero)+', nivel '+esc(av.nivel)+'</b>'+(av.inicio?', desde el '+esc(av.inicio):'')+(av.duracion?' por '+esc(av.duracion):'')+'. Departamentos: '+esc(deps.join(', '))+(deps.indexOf('TUMBES')>=0?' <b>(incluye Tumbes)</b>':' (no incluye Tumbes)')+'.</p>'; }
+  var cu=SV.cuencas||{}; h+='<p class="note" style="margin:0">Cuencas consideradas: Zorritos '+(cu.zorritos||0)+', Casitas '+(cu.casitas||0)+', Canoas de Punta Sal '+(cu.canoas||0)+'. Datos de SENAMHI descargados el '+fd(D(SV.actualizado))+'.</p>';
+  box.innerHTML=h;
+ }catch(x){ try{ console.error('silvia '+(x&&x.stack)); }catch(y){} }
+})();
+</script>
+<script>
+(function(){
+ try{
   var box=document.getElementById('seg-chart'); if(!box) return;
   function J(id){ var e=document.getElementById(id); if(!e) return null; try{ return JSON.parse(e.textContent); }catch(x){ return null; } }
   var P=J('seg-proy'), RAIN=J('seg-lluvia'), SST=J('seg-tsm');
@@ -1041,7 +1086,7 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
   function di(d){ return Math.round((d-S0)/864e5); }
   var W=960, L=50, R=18, pw=W-L-R;
   function X(d){ return L+di(d)*pw/DAYS; } function Xi(i){ return L+i*pw/DAYS; }
-  var CAL={y:44,h:42}, MAR={y:110,h:110}, LLU={y:248,h:140}, HEC={y:416,h:112}; var H=HEC.y+HEC.h+24;
+  var CAL={y:44,h:42}, MAR={y:110,h:110}, LLU={y:248,h:140}, SIL={y:416,h:40}, HEC={y:484,h:112}; var H=HEC.y+HEC.h+24;
   var g=[];
   g.push('<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-labelledby="seg-title" style="font-family:var(--body);font-size:12.5px">');
   g.push('<title id="seg-title">Proyección frente a observación, temporada '+esc(P.temporada)+': calendario de riesgo, temperatura del mar, lluvia diaria y hechos registrados</title>');
@@ -1052,11 +1097,12 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
   lane(CAL,'Lo proyectado: calendario de riesgo y ventanas de los hitos');
   lane(MAR,'Mar: anomalía semanal Niño 1+2 (NOAA) frente al pronóstico del ENFEN');
   lane(LLU,'Lluvia diaria en el punto de Zorritos, ERA5 (mm) frente a la media de 7 días de 1982‑83 y 1997‑98');
+  lane(SIL,'Semáforo diario de quebradas de SENAMHI (SILVIA) para el distrito de Zorritos');
   lane(HEC,'Hechos registrados en la cronología');
   // sombra del futuro
-  [MAR,LLU,HEC].forEach(function(o){ g.push('<rect x="'+X(today).toFixed(1)+'" y="'+o.y+'" width="'+(L+pw-X(today)).toFixed(1)+'" height="'+o.h+'" fill="var(--panel2)" opacity=".55"/>'); });
+  [MAR,LLU,SIL,HEC].forEach(function(o){ g.push('<rect x="'+X(today).toFixed(1)+'" y="'+o.y+'" width="'+(L+pw-X(today)).toFixed(1)+'" height="'+o.h+'" fill="var(--panel2)" opacity=".55"/>'); });
   months.forEach(function(mo,k){ var x0=X(mo.start), x1=Xi(di(mo.end)+1);
-    [CAL,MAR,LLU,HEC].forEach(function(o){ g.push('<line x1="'+x0.toFixed(1)+'" x2="'+x0.toFixed(1)+'" y1="'+o.y+'" y2="'+(o.y+o.h)+'" stroke="var(--line)" stroke-width="1"/>'); });
+    [CAL,MAR,LLU,SIL,HEC].forEach(function(o){ g.push('<line x1="'+x0.toFixed(1)+'" x2="'+x0.toFixed(1)+'" y1="'+o.y+'" y2="'+(o.y+o.h)+'" stroke="var(--line)" stroke-width="1"/>'); });
     var lab=cap(MN[mo.m])+((k===0||mo.m===0)?' '+mo.y:'');
     g.push('<text x="'+((x0+x1)/2).toFixed(1)+'" y="16" text-anchor="middle" fill="var(--fg)" style="font-size:12.5px;font-weight:600">'+lab+'</text>'); });
   // ---- carril calendario
@@ -1097,6 +1143,15 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
   g.push('<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+Yr(25).toFixed(1)+'" y2="'+Yr(25).toFixed(1)+'" stroke="var(--fg)" stroke-width="1" stroke-dasharray="4 3" opacity=".7"/>');
   g.push('<text x="'+(L+pw-4)+'" y="'+(Yr(25)-3).toFixed(1)+'" text-anchor="end" fill="var(--fg)" style="font-size:10.5px">25 mm · día de lluvia fuerte</text>');
   if(hasta) g.push('<text x="'+(L+6)+'" y="'+(LLU.y+13)+'" fill="var(--muted)" style="font-size:11px">ERA5 hasta el '+fd(hasta)+'</text>');
+  // ---- carril SILVIA (semáforo diario de SENAMHI)
+  var SV=J('silvia-data'); var SCOL={1:'var(--line)',2:'var(--haz-m)',3:'var(--haz-h)',4:'var(--haz-vh)'}; var SNAME={1:'normal',2:'amarillo',3:'naranja',4:'rojo'}; var silToday=null;
+  if(SV&&SV.historial&&SV.historial.length){
+    var cw=pw/DAYS, sq=function(d,lv,extra,tip){ g.push('<rect x="'+(X(d)-cw/2).toFixed(1)+'" y="'+(SIL.y+6)+'" width="'+Math.max(cw,1.5).toFixed(1)+'" height="'+(SIL.h-18)+'" fill="'+SCOL[lv]+'" '+extra+'><title>'+esc(tip)+'</title></rect>'); };
+    SV.historial.forEach(function(h){ var d=D(h.fecha); if(d<S0||d>S1) return; var lv=h.zorritos||1; sq(d,lv,'',fd(d)+': nivel '+lv+' ('+SNAME[lv]+')'+(h.aviso?' · aviso '+h.aviso:'')); });
+    (SV.prono||[]).forEach(function(h){ var d=D(h.fecha); if(d<S0||d>S1) return; var lv=h.zorritos||1; sq(d,lv,'opacity=".6" stroke="var(--fg)" stroke-width=".7" stroke-dasharray="2 1"','Pronóstico para el '+fd(d)+': nivel '+lv+' ('+SNAME[lv]+')'); });
+    silToday=SV.historial[SV.historial.length-1];
+    g.push('<text x="'+(L+6)+'" y="'+(SIL.y+SIL.h-3)+'" fill="var(--muted)" style="font-size:10.5px">Observado desde el '+fd(D(SV.historial[0].fecha))+' hasta el '+fd(D(silToday.fecha))+'; con borde punteado, pronóstico a 3 días.</text>');
+  } else g.push('<text x="'+(L+8)+'" y="'+(SIL.y+SIL.h-12)+'" fill="var(--muted)" style="font-size:12px">Sin datos de SILVIA todavía.</text>');
   // ---- carril hechos (de la cronología)
   var evs=[]; var evn=0;
   document.querySelectorAll('#cronologia .ev').forEach(function(ev){
@@ -1187,6 +1242,7 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
     var nz=evs.filter(function(e){ return e.lug==='zorritos'; }).length;
     rs.innerHTML=res.map(function(r){ return '<a class="chip '+r.st.cls+'" href="#seg-tabla"><i></i><b>'+esc(r.chip)+'</b> '+esc(r.st.txt.split(':')[0].toLowerCase())+'</a>'; }).join('')+
       '<a class="chip" href="#cronologia"><i style="background:var(--haz-h)"></i><b>Hechos</b> '+evs.length+' desde el '+fd(S0)+', '+nz+' en Zorritos o la provincia</a>'+
+      (silToday?'<a class="chip" href="#silvia"><i style="background:'+SCOL[silToday.zorritos||1]+'"></i><b>SILVIA</b> '+fd(D(silToday.fecha))+': nivel '+(silToday.zorritos||1)+' ('+SNAME[silToday.zorritos||1]+') en Zorritos</a>':'')+
       '<span class="chip"><i style="background:var(--fg)"></i><b>Hoy</b> '+fd(today)+' · ERA5 al '+(hasta?fd(hasta):'—')+(lastw?' · mar al '+fd(lastw[0]):'')+'</span>';
   }
  }catch(e){ try{ console.error('seguimiento '+(e&&e.stack)); var bx=document.getElementById('seg-chart'); if(bx) bx.textContent='No se pudo dibujar el seguimiento.'; }catch(x){} }
@@ -1217,7 +1273,7 @@ li>.nw,.stamp>.nw{margin-left:0;margin-right:8px}
   });
   document.querySelectorAll('#historial .h-ent[data-date]').forEach(function(e){ if(e.getAttribute('data-date')===latest) e.classList.add('is-latest'); });
   var box=document.getElementById('whatsnew'); if(!box||!cur.length) return;
-  var SEC={hero:['Alerta vigente','texto','m'],novedades:['Novedades','tarjeta','f'],tsm:['Gráfico del mar','gráfico','m'],proyeccion:['Proyección','elemento','m'],seguimiento:['Seguimiento','sección','f'],
+  var SEC={hero:['Alerta vigente','texto','m'],novedades:['Novedades','tarjeta','f'],tsm:['Gráfico del mar','gráfico','m'],proyeccion:['Proyección','elemento','m'],seguimiento:['Seguimiento','sección','f'],silvia:['Semáforo SILVIA','sección','f'],
            general:['Mapa general','elemento','m'],mapa:['Mapa interactivo','capa','f'],zonas:['Fichas de zona','ficha','f'],cronologia:['Cronología','entrada','f'],
            quebradas:['Tabla de quebradas','fila','f'],mar:['El mar','párrafo','m'],metodo:['Método','párrafo','m'],fuentes:['Fuentes','fuente','f']};
   var groups={}, order=[];
