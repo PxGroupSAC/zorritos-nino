@@ -11,10 +11,19 @@ Sitio público: https://pxgroupsac.github.io/zorritos-nino/ (GitHub Pages public
 - `.github/workflows/update-charts.yml`: GitHub Actions ejecuta `update_sst.py` los martes y viernes y hace commit solo si cambió algo. Ambos scripts escriben al inicio de su bloque un sello `<p class="stamp" data-upd="AAAA-MM-DD" data-rev="1">Gráfico regenerado el …</p>` que conserva la fecha anterior cuando los datos no cambiaron.
 - `zorritos-mapa-general.jpg`: mapa estático de referencia (no cambia).
 
+## Estructura de la página y regla de brevedad
+La página se lee en tres niveles: **resumen** arriba (cuatro mosaicos, "En resumen" y "Lo que viene"), **mapa** de zonas, y **detalle** en secciones plegables (`<section class="sec-fold"><details class="fold">`), cerradas por defecto. El lector tiene que entender la situación sin abrir nada.
+- El resumen manda: máximo 5 viñetas en "En resumen" (hasta 25 palabras cada una, sin fuentes ni paréntesis) y máximo 3 en "Lo que viene" (con la fecha en `<b>`).
+- Novedades: máximo 6 tarjetas; cada una con título de hasta 10 palabras y máximo 3 viñetas de hasta 35 palabras, con la fuente entre paréntesis. Lo que ya no cabe pasa a la cronología o se retira.
+- Las notas de "no se pudo verificar" van al mensaje final de la rutina, no a la página, salvo que cambien la lectura de un dato.
+- No añadir secciones nuevas, no cambiar `<details>`/`<summary>` ni sus `id`, y no dejar secciones abiertas (`open`).
+- Tres mosaicos se calculan solos con los datos de la página (quebradas, lluvia acumulada y temperatura del mar), igual que los subtítulos de varias secciones plegadas. No editarlos.
+
 ## Marcadores en la página
 | Marcador | Qué va ahí |
 |---|---|
-| `<!-- NOVEDADES:START -->` … `<!-- NOVEDADES:END -->` | Contenido completo de la sección "Novedades al <fecha>": `div.sec-head` + `div.news` con tarjetas `div.callout` (`div.d` fecha y fuente, `h3`, `ul`). `callout vh` para lo más grave. |
+| `<!-- RESUMEN:START -->` … `<!-- RESUMEN:END -->` | Parte editable del resumen. Va, en este orden: el mosaico de oleaje `<a class="tile lvN" id="tile-oleaje" href="#novedades"><span class="k">Oleaje</span><b>…</b><span class="t">…</span></a>` (`lv1` normal, `lv2` ligero o moderado, `lv3` fuerte, `lv4` muy fuerte o con daños; `b` de una o dos palabras; `span.t` de hasta 18 palabras), el `</div>` que cierra la fila de mosaicos, y `<div class="res-grid">` con dos bloques `<div class="res">`: `<h2>En resumen</h2><ul>…</ul>` y `<h2>Lo que viene</h2><ul>…</ul>`. Copiar la estructura existente y cambiar solo los textos. |
+| `<!-- NOVEDADES:START -->` … `<!-- NOVEDADES:END -->` | Contenido completo de la sección "Novedades al <fecha>": `div.sec-head` (con `h2` "Novedades al <fecha>" y un `p` de una frase) + `div.news` con hasta 6 tarjetas `div.callout` (`div.d` fecha y tema, `h3`, `ul` de hasta 3 viñetas). `callout vh` para lo más grave. |
 | `<!-- CRONOLOGIA:END -->` | Insertar antes de este marcador los `div.ev` nuevos (clases: `q` lluvias/quebradas, `m` mar, `vh` muy grave, `a` infraestructura/institucional). Formato: `<div class="ev q" data-upd="AAAA-MM-DD"><div class="when"><b>2026</b>d mes</div><div><h3>Título</h3><p>Texto.</p><p class="src">Fuente (fecha).</p></div></div>` |
 | `<!-- FUENTES:END -->` | Insertar antes un `<li data-upd="AAAA-MM-DD">Actualización del d de mes de aaaa: …</li>` con las fuentes nuevas enlazadas. |
 | `<!-- HISTORIAL:START -->` … `<!-- HISTORIAL:END -->` | Historial de ediciones, la más reciente primero. En cada actualización insertar **justo después de `<!-- HISTORIAL:START -->`** un `div.h-ent`: `<div class="h-ent" data-date="AAAA-MM-DD"><div class="when"><b>d mes</b>aaaa · día de la semana</div><ul><li>…</li></ul></div>` con 2–4 viñetas de lo que cambió (novedades añadidas, entradas de cronología, cambios en Alerta vigente, gráficos). No borrar entradas antiguas. |
@@ -25,7 +34,7 @@ Sitio público: https://pxgroupsac.github.io/zorritos-nino/ (GitHub Pages public
 ## Marcado de novedades (etiquetas "Nuevo" / "Actualizado")
 Un script al final de la página lee los atributos `data-upd` y pone etiquetas solas; no hay que escribir las etiquetas a mano.
 - **Elemento nuevo** (tarjeta `div.callout`, entrada `div.ev`, fuente `li`): añadir `data-upd="AAAA-MM-DD"` con la fecha de la edición.
-- **Elemento existente revisado** (por ejemplo la tarjeta "Alerta vigente" del encabezado o una tarjeta de Novedades que se reescribe): poner `data-upd` con la fecha de hoy **y** `data-rev="1"`.
+- **Elemento existente revisado** (por ejemplo una tarjeta de Novedades que se reescribe): poner `data-upd` con la fecha de hoy **y** `data-rev="1"`.
 - **No quitar** el `data-upd` de los elementos antiguos: el script solo etiqueta la última edición (rojo "Nuevo", naranja "Actualizado") y la anterior (gris); lo demás no muestra nada.
 - El `span.upd` del `h1` lleva `data-date="AAAA-MM-DD"` con la fecha de la edición; el script la usa junto con las fechas del historial para saber cuál es la edición actual.
 - El resumen "Nuevo en esta edición" de la cabecera (`div#whatsnew`) se genera solo a partir de los elementos marcados.
@@ -42,7 +51,7 @@ Se dibuja sola en el navegador a partir de: la franja mensual de riesgo (`.strip
 Además, en cada actualización cambiar:
 - `div.eyebrow`: "... · actualizada el <d de mes de aaaa>".
 - `span.upd` dentro del `h1`: texto "Actualizado <d mes aaaa>" y atributo `data-date`.
-- Primer `div.callout.vh` del encabezado ("Alerta vigente") si el ENFEN emitió comunicado nuevo o cambió el estado de emergencia (y entonces `data-upd` de hoy + `data-rev="1"`).
+- El bloque `RESUMEN` (mosaico de oleaje, "En resumen" y "Lo que viene"), siempre. Ya no existe la tarjeta "Alerta vigente".
 
 ## Dónde leer los documentos oficiales
 - **Comunicados del ENFEN:** `enfen.imarpe.gob.pe` tiene un control antibots; no intentar saltarlo. El mismo PDF está en el repositorio del IMARPE (DSpace, sin control): buscar con `curl -s "https://repositorio.imarpe.gob.pe/server/api/discover/search/objects?query=%22Comunicado%20Oficial%20ENFEN%22%20NN-AAAA&sort=dc.date.accessioned,DESC&size=5"`, tomar el `uuid` del ítem, luego `…/server/api/core/items/<uuid>/bundles`, el enlace `bitstreams` del bundle `ORIGINAL` y su `content` (PDF). Leer con `pdftotext -layout`; las probabilidades mensuales están en la figura 2 (imagen). Si la red lo impide, usar la prensa y decir que no se verificó en el PDF.
@@ -50,9 +59,9 @@ Además, en cada actualización cambiar:
 
 ## Procedimiento semanal
 1. Buscar novedades de los últimos 7 días: ENFEN (comunicados), SENAMHI (avisos para Tumbes), INDECI/COEN (reportes de emergencia de Tumbes), DHN (oleaje), Gobierno/PCM/MEF (decretos, prórrogas, transferencias), ANA/MVCS/Midagri (obras en Tumbes), prensa sobre Zorritos, Bocapán, Acapulco, Caleta Grau, Cancas, Casitas y Contralmirante Villar.
-2. Editar la página en los marcadores indicados, con `data-upd` en todo lo nuevo o revisado y una entrada nueva en el historial. Español neutro, frases cortas, cada dato con fuente y fecha, sin inventar cifras.
+2. Editar la página en los marcadores indicados, con `data-upd` en todo lo nuevo o revisado y una entrada nueva en el historial. Español neutro, frases cortas, cada dato con fuente y fecha, sin inventar cifras. Respetar los límites de la regla de brevedad.
 3. `python3 tools/update_sst.py` (si falla la red, al menos `python3 tools/build_index.py`).
-4. Comprobar: `grep -c 'NOVEDADES:START\|NOVEDADES:END\|CRONOLOGIA:END\|FUENTES:END\|SST-CHART:START\|SST-CHART:END\|PROYECCION:START\|PROYECCION:END\|HISTORIAL:START\|HISTORIAL:END\|SILVIA:START\|SILVIA:END' zorritos-nino-mapa-peligro.html` debe dar 12; `grep -c 'data-upd="<fecha de hoy>"' zorritos-nino-mapa-peligro.html` debe ser ≥ 1; `grep -c 'actualizada el' index.html` debe dar 1 con la fecha nueva.
+4. Comprobar: `grep -c 'NOVEDADES:START\|NOVEDADES:END\|CRONOLOGIA:END\|FUENTES:END\|SST-CHART:START\|SST-CHART:END\|PROYECCION:START\|PROYECCION:END\|HISTORIAL:START\|HISTORIAL:END\|SILVIA:START\|SILVIA:END\|RESUMEN:START\|RESUMEN:END' zorritos-nino-mapa-peligro.html` debe dar 14; `grep -c '<details class="fold"' zorritos-nino-mapa-peligro.html` debe dar 13; `grep -c 'data-upd="<fecha de hoy>"' zorritos-nino-mapa-peligro.html` debe ser ≥ 1; `grep -c 'actualizada el' index.html` debe dar 1 con la fecha nueva.
 5. `git add -A && git commit -m "Actualización al <fecha>" && git push origin main`.
 
 El artefacto de claude.ai (https://claude.ai/artifact/5JqQ16Bq1VTveYAG7ncQMC) se republica desde Claude Code con el mismo archivo `zorritos-nino-mapa-peligro.html`; la rutina en la nube no lo hace.
