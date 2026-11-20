@@ -46,6 +46,11 @@ def pip(pt,ring):
             if xi>x: inside=not inside
     return inside
 
+def fixmoj(x):
+    """La página de SILVIA mezcla codificaciones: repara 'MiÃ©rcoles' -> 'Miércoles' cuando aplica."""
+    try: return x.encode('latin-1').decode('utf-8')
+    except Exception: return x
+
 def fd(iso):
     d=datetime.date.fromisoformat(iso[:10]); return f'{d.day} {MES[d.month-1]}'
 
@@ -91,7 +96,7 @@ def aviso():
         deps=[x.strip() for x in t.split(',') if x.strip() and x.strip().upper()==x.strip()]
     if not (m and n): return None
     return {'numero':f'{m.group(1)}-{m.group(2)}','nivel':n.group(2).lower(),'nivel_num':NIVEL.get(n.group(1),None),
-            'inicio':(htmlmod.unescape(f.group(1)).strip()+' '+f.group(2)) if f else '','duracion':dur.group(1).strip() if dur else '',
+            'inicio':(re.sub(r'\s+',' ',fixmoj(htmlmod.unescape(f.group(1))).strip())+' '+f.group(2)) if f else '','duracion':dur.group(1).strip() if dur else '',
             'departamentos':deps}
 av=aviso(); print('aviso',av)
 

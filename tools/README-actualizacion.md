@@ -44,6 +44,10 @@ Además, en cada actualización cambiar:
 - `span.upd` dentro del `h1`: texto "Actualizado <d mes aaaa>" y atributo `data-date`.
 - Primer `div.callout.vh` del encabezado ("Alerta vigente") si el ENFEN emitió comunicado nuevo o cambió el estado de emergencia (y entonces `data-upd` de hoy + `data-rev="1"`).
 
+## Dónde leer los documentos oficiales
+- **Comunicados del ENFEN:** `enfen.imarpe.gob.pe` tiene un control antibots; no intentar saltarlo. El mismo PDF está en el repositorio del IMARPE (DSpace, sin control): buscar con `curl -s "https://repositorio.imarpe.gob.pe/server/api/discover/search/objects?query=%22Comunicado%20Oficial%20ENFEN%22%20NN-AAAA&sort=dc.date.accessioned,DESC&size=5"`, tomar el `uuid` del ítem, luego `…/server/api/core/items/<uuid>/bundles`, el enlace `bitstreams` del bundle `ORIGINAL` y su `content` (PDF). Leer con `pdftotext -layout`; las probabilidades mensuales están en la figura 2 (imagen). Si la red lo impide, usar la prensa y decir que no se verificó en el PDF.
+- **Decretos en El Peruano:** la página `https://busquedas.elperuano.pe/dispositivo/NL/<op>` incluye en su código la ruta `urlPDF` (`/api/archivo/file/…/<op>.PDF`); ese PDF trae el anexo completo de distritos.
+
 ## Procedimiento semanal
 1. Buscar novedades de los últimos 7 días: ENFEN (comunicados), SENAMHI (avisos para Tumbes), INDECI/COEN (reportes de emergencia de Tumbes), DHN (oleaje), Gobierno/PCM/MEF (decretos, prórrogas, transferencias), ANA/MVCS/Midagri (obras en Tumbes), prensa sobre Zorritos, Bocapán, Acapulco, Caleta Grau, Cancas, Casitas y Contralmirante Villar.
 2. Editar la página en los marcadores indicados, con `data-upd` en todo lo nuevo o revisado y una entrada nueva en el historial. Español neutro, frases cortas, cada dato con fuente y fecha, sin inventar cifras.
